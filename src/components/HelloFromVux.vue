@@ -21,7 +21,7 @@
       </div>
 
       <div v-transfer-dom>
-        <x-dialog v-model="showHideOnBlur" class="dialog-demo" :dialog-style="dialogStyle" hide-on-blur>
+        <x-dialog v-model="showHideOnBlur" class="dialog-demo"  hide-on-blur>
           <div class="img-box">
             <h1>用户协议</h1>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur facilis non quos. Corporis, fugit, maxime. Ab aspernatur beatae eius eum nobis omnis optio provident quisquam quo ratione, sunt ullam velit.
@@ -63,14 +63,6 @@
         },
         showMenus: false,
         showHideOnBlur:false,
-        dialogStyle: {
-          width: '90%',
-          maxWidth: 'none',
-          maxHeight: '400px',
-          padding:'15px',
-          overflow:'scroll',
-          boxSizing: 'border-box'
-        }
       }
     },
     methods: {
@@ -159,10 +151,12 @@
         color: #44A3F3;
       }
     }
+
   }
 
   button.weui-btn {
     height: 50px;
     line-height: 50px;
   }
+
 </style>
