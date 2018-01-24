@@ -5,7 +5,8 @@
     <box class="container" gap="10px 0 0 0">
       <div class="logo">
         <img src="" alt="">
-        <div class="text">包车圈</div>
+        <div class="text" >包车圈</div>
+        <router-link to="basic">Home</router-link>
       </div>
 
       <div class="login-form-wrap">
