@@ -1,42 +1,35 @@
 <template>
   <div>
-    <div class="vux-demo">
-      <img class="logo" src="../assets/vux_logo.png">
-      <h1 @click="sayHello">{{msg}}</h1>
-    </div>
-    <group title="cell demo">
-      <cell title="VUX" value="cool" is-link></cell>
-    </group>
+    <x-header :left-options="{backText: ''}">快捷登陆</x-header>
   </div>
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
+  import {XHeader, Actionsheet, TransferDom, ButtonTab, ButtonTabItem} from 'vux'
 
-export default {
-  components: {
-    Group,
-    Cell
-  },
-  data () {
-    return {
-      msg: 'Hello World!123321123213'
-    }
-  },
-  methods: {
-    sayHello: function () {
-      console.log('fuck')
-    }
+  export default {
+    directives: {
+      TransferDom
+    },
+    components: {
+      XHeader,
+      Actionsheet,
+      ButtonTab,
+      ButtonTabItem
+    },
+    data() {
+      return {
+        menus: {
+          menu1: 'Take Photo',
+          menu2: 'Choose from photos'
+        },
+        showMenus: false
+      }
+    },
+    methods: {}
   }
-}
 </script>
 
 <style>
-.vux-demo {
-  text-align: center;
-}
-.logo {
-  width: 100px;
-  height: 100px
-}
+
 </style>
