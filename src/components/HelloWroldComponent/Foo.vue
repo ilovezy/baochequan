@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <x-header :left-options="{backText: ''}">Foo</x-header>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     bbbbbbbbbbbbbbbbbbbb

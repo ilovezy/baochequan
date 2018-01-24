@@ -1,6 +1,5 @@
 <template>
   <div class="hello">
-    <x-header :left-options="{backText: ''}">Bar</x-header>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque, cupiditate ducimus est fugiat harum maxime officia quidem. Delectus deserunt harum id iste molestias odio odit sed tempore temporibus. Ipsam, odio!

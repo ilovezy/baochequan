@@ -18,7 +18,7 @@ const routes = [{
 }, {
   path: '/basic', component: HelloWorld,
   children: [
-    {path: '/default', component: Default},
+    {path: '', component: Default},
     {path: '/foo', component: Foo},
     {path: '/bar', component: Bar}
   ]
