@@ -14,6 +14,7 @@
 
 <script>
   import {XHeader} from 'vux'
+  console.log(_)
   export default {
     components: {
       XHeader
