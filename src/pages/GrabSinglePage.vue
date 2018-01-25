@@ -22,9 +22,9 @@
     </div>
 
     <tab v-if="showGrab">
-      <tab-item selected @on-item-click="onItemClick('release')">已发货</tab-item>
-      <tab-item @on-item-click="onItemClick('unrelease')">未发货</tab-item>
-      <tab-item @on-item-click="onItemClick('all')">全部订单</tab-item>
+      <tab-item selected @on-item-click="onItemClick('orderSea')">抢单池</tab-item>
+      <tab-item @on-item-click="onItemClick('getOrder')">已抢订单</tab-item>
+      <tab-item @on-item-click="onItemClick('completedOrder')">已完成</tab-item>
     </tab>
 
     <tab v-else>
@@ -34,23 +34,26 @@
     </tab>
 
     <div class="container">
-      <transition :name="transitionName">
-        <router-view class="child-view"></router-view>
-      </transition>
+      <order-sea-content v-if="currentPanel=='orderSea'"></order-sea-content>
+      <get-order-content v-if="currentPanel=='getOrder'"></get-order-content>
+      <completed-order-content v-if="currentPanel=='completedOrder'"></completed-order-content>
     </div>
 
   </div>
 </template>
 
 <script>
-  import {XHeader, Box, TransferDom, XButton, Tab, TabItem} from 'vux'
+  import {XHeader, Box, TransferDom, XButton, Tab, TabItem,} from 'vux'
+  import OrderSeaContent from './GrabSinglePageComponent/OrderSeaContent'
+  import GetOrderContent from './GrabSinglePageComponent/GetOrderContent'
+  import CompletedOrderContent from './GrabSinglePageComponent/CompletedOrderContent'
 
   export default {
     directives: {
       TransferDom,
     },
     components: {
-      XHeader, XButton, Box, Tab, TabItem
+      XHeader, XButton, Box, Tab, TabItem, OrderSeaContent, GetOrderContent, CompletedOrderContent
     },
     data() {
       return {
@@ -58,14 +61,9 @@
         phone: '1768***123',
         avatarUrl: '../assets/avatar.png',
         transitionName: '',
-        showGrab: true
-      }
-    },
-    watch: {
-      '$route'(to, from) {
-        const toDepth = to.path.split('/').length
-        const fromDepth = from.path.split('/').length
-        this.transitionName = toDepth == fromDepth ? 'fade' : (toDepth < fromDepth ? 'slide-right' : 'slide-left')
+        showGrab: true,
+
+        currentPanel: 'orderSea'
       }
     },
     methods: {
@@ -75,7 +73,7 @@
       },
 
       onItemClick(type) {
-        this.$router.push('/' + type)
+        this.currentPanel = type
       },
     }
   }

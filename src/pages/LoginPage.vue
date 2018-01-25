@@ -6,7 +6,6 @@
       <div class="logo">
         <img src="../assets/logo.png" alt="">
         <div class="text" >包车圈</div>
-        <!--<router-link to="basic">Home</router-link>-->
       </div>
 
       <div class="login-form-wrap">
@@ -64,10 +63,6 @@
         userPhone: '',
         verificationCode: '',
         agreed: true,
-        menus: {
-          menu1: 'Take Photo',
-          menu2: 'Choose from photos'
-        },
         showMenus: false,
         showHideOnBlur:false,
         showErrorToast: false,

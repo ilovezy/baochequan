@@ -7,9 +7,6 @@ import App from './App'
 
 import LoginPage from './pages/LoginPage' // 登陆
 import GrabSinglePage from './pages/GrabSinglePage' // 抢单池
-import ReleaseContent from './pages/GrabSinglePageComponent/ReleaseContent'
-import UnReleaseContent from './pages/GrabSinglePageComponent/UnReleaseContent'
-import AllContent from './pages/GrabSinglePageComponent/AllContent'
 
 Vue.use(VueRouter)
 
@@ -18,12 +15,8 @@ const routes = [{
   component: LoginPage
 },{
   path: "/grabSinglePage",
-  component: GrabSinglePage,
-  children: [
-    {path: '', component: ReleaseContent},
-    {path: '/unrelease', component: UnReleaseContent},
-    {path: '/all', component: AllContent}
-  ]
+  component: GrabSinglePage
+
 }]
 
 const router = new VueRouter({
