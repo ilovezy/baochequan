@@ -4,19 +4,19 @@
 
     <box class="container" gap="10px 0 0 0">
       <div class="logo">
-        <img src="" alt="">
+        <img src="../assets/logo.png" alt="">
         <div class="text" >包车圈</div>
-        <router-link to="basic">Home</router-link>
+        <!--<router-link to="basic">Home</router-link>-->
       </div>
 
       <div class="login-form-wrap">
         <div class="form-group phone">
-          <icon type="success"></icon>
-          <input type="number" placeholder="请输入手机号">
+          <span class="icon iconfont">&#xe600;</span>
+          <input type="number" maxLength="11" v-model="userPhone" placeholder="请输入手机号">
         </div>
         <div class="form-group sms-code">
-          <icon type="info"></icon>
-          <input type="number" placeholder="请输入验证码">
+          <span class="icon iconfont">&#xe627;</span>
+          <input type="number" v-model="verificationCode" placeholder="请输入验证码">
           <span class="btn">获取验证码</span>
         </div>
       </div>
@@ -37,41 +37,63 @@
 
       <div class="notice">
         <label>
-          <input type="checkbox"> 我已阅读并同意 <span class="link" @click="openDialog()">《包车圈用户使用协议》</span>
+          <input type="checkbox" v-model="agreed"> 我已阅读并同意 <span class="link" @click="openDialog()">《包车圈用户使用协议》</span>
         </label>
       </div>
 
-      <x-button type="primary" @click="goBasic">登 录</x-button>
+      <toast v-model="showSuccessToast" :time="1000">登陆成功</toast>
+      <toast v-model="showErrorToast" type="warn" :time="1000">手机号或验证码错误</toast>
+
+      <x-button type="primary" :disabled="!agreed" @click.native="login">登 录</x-button>
     </box>
   </div>
 </template>
 
 <script>
-  import {XHeader, Box, TransferDom, XButton, Icon, XInput,XDialog} from 'vux'
+  import {XHeader, Box, TransferDom, XButton, Icon, XInput,XDialog,Toast} from 'vux'
 
   export default {
     directives: {
       TransferDom
     },
     components: {
-      XHeader, XButton, Box, XInput, Icon,XDialog
+      XHeader, XButton, Box, XInput, Icon,XDialog,Toast
     },
     data() {
       return {
+        userPhone: '',
+        verificationCode: '',
+        agreed: true,
         menus: {
           menu1: 'Take Photo',
           menu2: 'Choose from photos'
         },
         showMenus: false,
         showHideOnBlur:false,
+        showErrorToast: false,
+        showSuccessToast: false
       }
     },
     methods: {
       openDialog() {
         this.showHideOnBlur = true
       },
-      goBasic() {
-        router.push({ path: 'basic' })
+
+      validateForm() {
+        if(this.userPhone.length != 11 || this.verificationCode != '123'){
+          this.showErrorToast = true
+          return false
+        } else {
+          return true
+        }
+      },
+
+      login() {
+        if(this.validateForm()){
+          localStorage.setItem('userPhone', this.userPhone)
+          this.showSuccessToast = true
+          this.$router.push('/grabSinglePage')
+        }
       }
     }
   }
@@ -117,10 +139,12 @@
         line-height: 50px;
         display: flex;
 
-        .weui-icon {
+        .icon {
           width: 50px;
           text-align: center;
           line-height: 50px;
+          font-size: 22px;
+          color: @theme-color;
         }
 
         input {

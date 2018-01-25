@@ -4,7 +4,10 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
-import LoginPage from './pages/LoginPage'
+
+import LoginPage from './pages/LoginPage' // 登陆
+import GrabSinglePage from './pages/GrabSinglePage' // 抢单池
+
 import HelloWorld from './pages/HelloWorld'
 import Default from './pages/HelloWroldComponent/Default'
 import Foo from './pages/HelloWroldComponent/Foo'
@@ -15,6 +18,9 @@ Vue.use(VueRouter)
 const routes = [{
   path: '/',
   component: LoginPage
+},{
+  path: "/grabSinglePage",
+  component: GrabSinglePage
 }, {
   path: '/basic', component: HelloWorld,
   children: [
@@ -28,7 +34,7 @@ const router = new VueRouter({
   routes
 })
 
-FastClick.attach(document.body)
+// FastClick.attach(document.body)
 
 // Vue.config.productionTip = false
 
