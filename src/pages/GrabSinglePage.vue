@@ -12,14 +12,26 @@
       </div>
 
       <div class="center">
-        <router-link class="active" to="/foo">抢单</router-link>
-        <router-link to="/bar">发单</router-link>
+        <a :class="showGrab ? 'active' : ''" @click="toggleView">抢单</a>
+        <a :class="showGrab ? '' : 'active'" @click="toggleView">发单</a>
       </div>
 
       <div class="right">
         <x-button mini type="primary">我要发单</x-button>
       </div>
     </div>
+
+    <tab v-if="showGrab">
+      <tab-item selected @on-item-click="onItemClick('release')">已发货</tab-item>
+      <tab-item @on-item-click="onItemClick('unrelease')">未发货</tab-item>
+      <tab-item @on-item-click="onItemClick('all')">全部订单</tab-item>
+    </tab>
+
+    <tab v-else>
+      <tab-item selected @on-item-click="onItemClick">已发货1</tab-item>
+      <tab-item @on-item-click="onItemClick">未发货1</tab-item>
+      <tab-item @on-item-click="onItemClick">全部订单1</tab-item>
+    </tab>
 
     <div class="container">
       <transition :name="transitionName">
@@ -31,14 +43,14 @@
 </template>
 
 <script>
-  import {XHeader, Box, TransferDom, XButton, Icon, XInput, XDialog} from 'vux'
+  import {XHeader, Box, TransferDom, XButton, Tab, TabItem} from 'vux'
 
   export default {
     directives: {
-      TransferDom
+      TransferDom,
     },
     components: {
-      XHeader, XButton, Box, XInput, Icon, XDialog
+      XHeader, XButton, Box, Tab, TabItem
     },
     data() {
       return {
@@ -46,6 +58,7 @@
         phone: '1768***123',
         avatarUrl: '../assets/avatar.png',
         transitionName: '',
+        showGrab: true
       }
     },
     watch: {
@@ -56,8 +69,13 @@
       }
     },
     methods: {
-      openDialog() {
-        this.showHideOnBlur = true
+      toggleView() {
+        this.showGrab = !this.showGrab
+        console.log(12)
+      },
+
+      onItemClick(type) {
+        this.$router.push('/' + type)
       },
     }
   }
@@ -114,8 +132,8 @@
       top: 17px;
       a {
         width: 50%;
-        height: 30px;
-        line-height: 30px;
+        height: 35px;
+        line-height: 35px;
         text-align: center;
         box-sizing: border-box;
 
