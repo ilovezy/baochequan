@@ -4,11 +4,11 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
-import Home from './components/HelloFromVux'
-import HelloWorld from './components/HelloWorld'
-import Default from './components/HelloWroldComponent/Default'
-import Foo from './components/HelloWroldComponent/Foo'
-import Bar from './components/HelloWroldComponent/Bar'
+import Home from './pages/HelloFromVux'
+import HelloWorld from './pages/HelloWorld'
+import Default from './pages/HelloWroldComponent/Default'
+import Foo from './pages/HelloWroldComponent/Foo'
+import Bar from './pages/HelloWroldComponent/Bar'
 
 Vue.use(VueRouter)
 
