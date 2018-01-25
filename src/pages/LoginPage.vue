@@ -7,7 +7,6 @@
         <img src="" alt="">
         <div class="text" >包车圈</div>
         <router-link to="basic">Home</router-link>
-
       </div>
 
       <div class="login-form-wrap">
@@ -42,7 +41,7 @@
         </label>
       </div>
 
-      <x-button type="primary">登 录</x-button>
+      <x-button type="primary" @click="goBasic">登 录</x-button>
     </box>
   </div>
 </template>
@@ -70,6 +69,9 @@
     methods: {
       openDialog() {
         this.showHideOnBlur = true
+      },
+      goBasic() {
+        router.push({ path: 'basic' })
       }
     }
   }

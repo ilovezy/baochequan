@@ -4,7 +4,7 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
-import Home from './pages/HelloFromVux'
+import LoginPage from './pages/LoginPage'
 import HelloWorld from './pages/HelloWorld'
 import Default from './pages/HelloWroldComponent/Default'
 import Foo from './pages/HelloWroldComponent/Foo'
@@ -14,7 +14,7 @@ Vue.use(VueRouter)
 
 const routes = [{
   path: '/',
-  component: Home
+  component: LoginPage
 }, {
   path: '/basic', component: HelloWorld,
   children: [
