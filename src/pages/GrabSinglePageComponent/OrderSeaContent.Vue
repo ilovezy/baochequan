@@ -12,7 +12,7 @@
 
     <div class="card-list-container">
       <order-card v-for="(item, index) in orderList"
-                  card-info="item"
+                  :card-info="item"
                   :key="index"/>
     </div>
   </div>
@@ -33,16 +33,20 @@
       return {
         orderNum: 36,
         filter: 1,
-        orderList: [{
-          name: 'Soso'
-        }, {
-          name: 'jack'
-        }, {
-          name: 'mark'
-        }]
+        orderList: []
       }
     },
+    mounted() {
+      this.getData()
+    },
     methods: {
+      getData() {
+        const self = this
+        axios.get('static/puppetData/orderList.json').then((res) => {
+          self.orderList = window.formatJsonData(res.data)
+        })
+      },
+
       filterChange() {
         console.log(this.filter)
       }
@@ -51,8 +55,8 @@
 </script>
 
 <style lang="less">
-  @theme-color: #EF5A48;
-  @basic-border-color: #D5D5D5;
+  @import '../../style/basic.less';
+
   @sub-text-color: #aaa;
   @basic-shadow-color: #aaa;
 

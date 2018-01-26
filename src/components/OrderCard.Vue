@@ -7,7 +7,7 @@
 
     <div class="header">
       <span class="avatar">
-        <img src="../assets/avatar.png" alt="">
+        <img :src="cardInfo.avatar" alt="">
       </span>
 
       <div class="basic-info">
@@ -76,15 +76,15 @@
       }
     },
     mounted() {
-      console.log(this)
+      console.log(this.cardInfo)
     },
     methods: {}
   }
 </script>
 
 <style lang="less">
-  @theme-color: #EF5A48;
-  @basic-border-color: #D5D5D5;
+  @import '../style/basic.less';
+
   @sub-text-color: #aaa;
   @basic-shadow-color: #aaa;
 

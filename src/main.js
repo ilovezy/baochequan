@@ -6,12 +6,18 @@ import VueRouter from 'vue-router'
 import App from './App'
 import _ from 'underscore';
 import moment from 'moment';
-import VueLazyload from 'vue-lazyload';
-import * as filters from '@/core/filters';
-import router from '@/router/index.js'
+import axios from 'axios';
 
-window._ = _
+import VueLazyload from 'vue-lazyload';
+
+import * as filters from '@/core/filters';
+
+import router from '@/router/index.js'
+import './core/toolkit.js'
+
+window._ = _;
 window.moment = moment;
+window.axios = axios;
 
 Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
