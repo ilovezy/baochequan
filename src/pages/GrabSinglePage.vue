@@ -84,7 +84,7 @@
   @basic-border-color: #D5D5D5;
 
   .header {
-    padding: 10px;
+    padding: 10px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
