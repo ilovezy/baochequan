@@ -8,6 +8,11 @@
 
 ## Build Setup
 
+# puppetData 模拟的数据
+# core 通用函数
+# components 组件库
+# assets 资源库
+
 ``` bash
 # install dependencies
 npm install
