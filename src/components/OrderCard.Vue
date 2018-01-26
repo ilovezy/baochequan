@@ -112,7 +112,7 @@
       .text {
         display: inline-block;
         position: absolute;
-        top: 4px;
+        top: 7px;
         right: 3px;
         transform: rotate(30deg);
         overflow: hidden;
@@ -120,8 +120,8 @@
       &:after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0;
+        top: 1px;
+        left: -1px;
         border-bottom: 40px solid #fff;
         border-right: 60px solid transparent;
       }

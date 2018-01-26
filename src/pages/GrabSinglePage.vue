@@ -33,7 +33,7 @@
       <tab-item @on-item-click="onItemClick">全部订单1</tab-item>
     </tab>
 
-    <div class="container">
+    <div class="content-container">
       <order-sea-content v-if="currentPanel=='orderSea'"></order-sea-content>
       <get-order-content v-if="currentPanel=='getOrder'"></get-order-content>
       <completed-order-content v-if="currentPanel=='completedOrder'"></completed-order-content>
