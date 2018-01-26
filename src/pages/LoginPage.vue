@@ -95,15 +95,15 @@
 </script>
 
 <style lang="less">
-  @theme-color: #EF5A48;
-  @basic-border-color: #D5D5D5;
+  @import '../style/variables.less';
 
   .container {
     background: #fff;
-    padding: 15px 15px 150px 15px;
+    padding: @basic-margin;
+    padding-bottom: 150px;
 
     .logo {
-      margin-top: 15px;
+      margin-top: @basic-margin;
       margin-bottom: 40px;
       text-align: center;
       img {
@@ -154,14 +154,14 @@
         .btn {
           color: @theme-color;
           display: inline-block;
-          padding-right: 15px;
+          padding-right: @basic-margin;
           background: none;
         }
       }
     }
 
     .notice {
-      margin-bottom: 15px;
+      margin-bottom: @basic-margin;
       color: #555555;
 
       input {
@@ -174,7 +174,6 @@
         color: #44A3F3;
       }
     }
-
   }
 
   button.weui-btn {

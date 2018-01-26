@@ -80,11 +80,10 @@
 </script>
 
 <style lang="less">
-  @theme-color: #EF5A48;
-  @basic-border-color: #D5D5D5;
+  @import '../style/basic.less';
 
   .header {
-    padding: 10px 15px;
+    padding: 10px @basic-margin;
     display: flex;
     justify-content: space-between;
     align-items: center;
