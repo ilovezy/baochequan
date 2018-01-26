@@ -7,10 +7,8 @@ import App from './App'
 import _ from 'underscore';
 import moment from 'moment';
 import VueLazyload from 'vue-lazyload';
-import * as filters from './core/filters';
-
-import LoginPage from './pages/LoginPage' // 登陆
-import GrabSinglePage from './pages/GrabSinglePage' // 抢单池
+import * as filters from '@/core/filters';
+import router from '@/router/index.js'
 
 window._ = _
 window.moment = moment;
@@ -19,21 +17,8 @@ Object.keys(filters).forEach(key => {
   Vue.filter(key, filters[key]);
 });
 
-Vue.use(VueRouter)
 Vue.use(VueLazyload);
-
-const routes = [{
-  path: '/',
-  component: LoginPage
-},{
-  path: "/grabSinglePage",
-  component: GrabSinglePage
-
-}]
-
-const router = new VueRouter({
-  routes
-})
+Vue.use(VueRouter)
 
 // FastClick.attach(document.body)
 

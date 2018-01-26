@@ -20,7 +20,7 @@
 
 <script>
   import {XHeader, Box, TransferDom, XButton, Tab, TabItem} from 'vux'
-  import OrderCard from '../../components/OrderCard'
+  import OrderCard from '@/components/OrderCard'
 
   export default {
     directives: {
