@@ -125,6 +125,7 @@
     .header {
       border-bottom: none;
       .avatar {
+        display: inline-block;
         width: 60px;
         height: 60px;
         border-radius: 60px;
