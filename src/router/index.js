@@ -6,6 +6,7 @@ import WalletPage from '@/pages/WalletPage' // 我的钱包
 import MyCarsPage from '@/pages/UserCenter/MyCarsPage' // 我的车辆
 import WithdrawPage from '@/pages/WithdrawPage' // 提现
 import BidRecordPage from '@/pages/BidRecordPage' // 竞价记录
+import ReleaseOrderPage from '@/pages/ReleaseOrderPage' // 发布订单
 
 export default new Router({
   routes: [{
@@ -26,5 +27,8 @@ export default new Router({
   }, {
     path: '/bidRecordPage',
     component: BidRecordPage
+  }, {
+    path: '/releaseOrderPage',
+    component: ReleaseOrderPage
   }]
 })

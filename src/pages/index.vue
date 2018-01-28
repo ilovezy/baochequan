@@ -13,6 +13,7 @@
           <cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>
           <cell title="我的车辆" link="/myCarsPage" value="我的车辆" @click.native="drawerVisibility = false"></cell>
           <cell title="竞价记录" link="/bidRecordPage" value="竞价记录" @click.native="drawerVisibility = false"></cell>
+          <cell title="我要发单" link="/releaseOrderPage" value="我要发单" @click.native="drawerVisibility = false"></cell>
         </group>
       </div>
 
@@ -34,7 +35,7 @@
           </div>
 
           <div class="right">
-            <x-button mini type="primary" @click.native="goOtherPages">我要发单</x-button>
+            <x-button mini type="primary" @click.native="goReleaseOrderPages">我要发单</x-button>
           </div>
         </div>
 
@@ -115,8 +116,8 @@
         this.currentPanel = type
       },
 
-      goOtherPages() {
-        this.$router.push('/walletPage')
+      goReleaseOrderPages() {
+        this.$router.push('/releaseOrderPage')
       }
     }
   }

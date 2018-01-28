@@ -2,6 +2,14 @@
 @import './variables.less';
 @import './iconfont.less';
 
+.vux-header {
+.vux-header-right {
+  .iconfont{
+    font-size: 20px;
+  }
+}
+}
+
 .dialog-demo {
   .weui-dialog {
     width: 90%;
@@ -23,7 +31,8 @@
   position: relative;
 }
 
-input.form-control {
+input.form-control,
+textarea.form-control {
   display: inline-block;
   border: 1px solid @basic-border-color;
   height: 30px;
@@ -32,7 +41,10 @@ input.form-control {
   padding: 15px;
   box-sizing: border-box;
 }
-
+textarea.form-control {
+  padding: 5px;
+  line-height: 20px;
+}
 select.form-control {
   height: 30px;
   min-width: 80px;

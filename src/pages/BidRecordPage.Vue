@@ -1,6 +1,8 @@
 <template>
-  <div class="page mycars-page">
-    <x-header :left-options="{backText: '竞价记录'}"></x-header>
+  <div class="page bid-record-page">
+    <x-header :left-options="{backText: '竞价记录'}">
+      <span class="icon iconfont" slot="right">&#xe61a;</span>
+    </x-header>
 
     <div class="container">
       <div class="car-list">
