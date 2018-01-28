@@ -5,14 +5,18 @@
     </x-header>
 
     <div class="container">
-      <tab v-model="selectTab"
-           class="top-tab"
-           prevent-default
-           @on-before-index-change="switchTabItem"
-           custom-bar-width="80px">
-        <tab-item selected>精确发布</tab-item>
-        <tab-item>简易发布</tab-item>
-      </tab>
+      <div style="height:44px;">
+        <sticky ref="sticky" :check-sticky-support="false">
+          <tab v-model="selectTab"
+               class="top-tab"
+               prevent-default
+               @on-before-index-change="switchTabItem"
+               custom-bar-width="80px">
+            <tab-item selected>精确发布</tab-item>
+            <tab-item>简易发布</tab-item>
+          </tab>
+        </sticky>
+      </div>
 
       <div class="form-panel">
         <div class="form-item">
@@ -109,14 +113,14 @@
       </div>
 
       <div class="btn-wrap">
-      <x-button type="primary">发布</x-button>
+        <x-button type="primary">发布</x-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import {TransferDom, XHeader, Sticky, XButton, Tab, TabItem} from 'vux'
+  import {TransferDom, XHeader, XButton, Tab, TabItem, Sticky} from 'vux'
 
   export default {
     directives: {
