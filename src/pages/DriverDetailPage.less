@@ -1,0 +1,58 @@
+@import '../style/basic.less';
+
+.driver-detail-page{
+  .container {
+    margin-top: 10px;
+    padding: 10px 15px;
+    padding-bottom: 150px;
+    background: #fff;
+
+    .card {
+      margin-bottom: 15px;
+      padding: 10px;
+
+      .header {
+        padding-bottom: 10px;
+        color: @text-color3;
+        border-bottom: 1px solid @basic-border-color;
+        .iconfont {
+          font-size: 20px;
+          margin-right: 5px;
+        }
+      }
+
+      .body {
+        padding: 15px 0;
+      }
+
+      .footer {
+        padding: 10px 20px;
+      }
+
+
+      &.card-judge {
+        .body {
+          padding: 15px;
+          .judge-item {
+            margin-bottom: 10px;
+          }
+        }
+
+      }
+
+      &.card-car {
+        .body {
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+    }
+
+    .btn-wrap {
+      margin-top: 40px;
+    }
+  }
+}

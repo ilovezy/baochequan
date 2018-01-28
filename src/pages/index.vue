@@ -14,6 +14,8 @@
           <cell title="我的车辆" link="/myCarsPage" value="我的车辆" @click.native="drawerVisibility = false"></cell>
           <cell title="竞价记录" link="/bidRecordPage" value="竞价记录" @click.native="drawerVisibility = false"></cell>
           <cell title="我要发单" link="/releaseOrderPage" value="我要发单" @click.native="drawerVisibility = false"></cell>
+          <cell title="车辆注册" link="/carRegisterPage" value="车辆注册" @click.native="drawerVisibility = false"></cell>
+          <cell title="司机详情" link="/driverDetailPage" value="司机详情" @click.native="drawerVisibility = false"></cell>
         </group>
       </div>
 
