@@ -2,7 +2,7 @@
   <div class="content release-content">
     <div class="control-bar">
       <div class="number">{{orderNum}}个订单</div>
-      <select v-model="filter" @change="filterChange">
+      <select class="form-control" v-model="filter" @change="filterChange">
         <option value="1">智能排序</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -73,12 +73,7 @@
       color: @sub-text-color;
     }
 
-    select {
-      height: 30px;
-      min-width: 80px;
-      border: 1px solid @basic-border-color;
-      border-radius: 4px;
-    }
+
   }
 
   .card-list-container {

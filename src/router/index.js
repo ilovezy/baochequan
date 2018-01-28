@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import LoginPage from '@/pages/LoginPage' // 登陆
 import GrabSinglePage from '@/pages/GrabSinglePage' // 抢单池
+import WalletPage from '@/pages/WalletPage' // 抢单池
 
 export default new Router({
   routes: [{
@@ -10,5 +11,8 @@ export default new Router({
   },{
     path: "/grabSinglePage",
     component: GrabSinglePage
+  }, {
+    path: '/walletPage',
+    component: WalletPage
   }]
 })

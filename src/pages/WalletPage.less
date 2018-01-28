@@ -1,0 +1,115 @@
+@import '../style/basic.less';
+
+.wallet-page {
+  .wallet-panel {
+    background: @theme-color;
+    color: #fff;
+    .panel-top {
+      display: flex;
+      padding: 45px;
+      padding-bottom: 15px;
+      justify-content: space-between;
+
+      .panel-top-left {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+          font-size: 13px;
+        }
+        .number {
+          color: #FFF3A3;
+          font-size: 40px;
+        }
+
+        .text {
+          .iconfont {
+            margin-left: 10px;
+          }
+        }
+        .vux-popover {
+          width: 65%;
+          .popover-content {
+            padding: 15px;
+          }
+        }
+      }
+
+      .panel-top-right {
+        .icon-withdraw {
+          padding: 0 10px;
+          height: 25px;
+          line-height: 25px;
+          border-radius: 25px;
+          border: 1px solid #fff;
+
+          .iconfont {
+            font-size: 20px;
+            margin-right: 5px;
+          }
+          .text {
+
+          }
+        }
+      }
+    }
+
+    .panel-bottom {
+      padding: 10px 25px;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+    }
+  }
+
+  .detail-list {
+    .weui-cells {
+      margin-top: 10px;
+    }
+    .vux-cell-box {
+      display: flex;
+      justify-content: space-between;
+
+      .left {
+        max-width: 80%;
+        .title {
+          font-size: 13px;
+          color: @text-color3;
+        }
+
+        .date {
+          font-size: 9px;
+          color: #9A9A9A;
+        }
+      }
+
+      .right {
+        .number {
+          font-size: 17px;
+
+          &.danger {
+            color: @theme-color;
+          }
+          &.success {
+            color: @theme-color-green-dark;
+          }
+        }
+      }
+    }
+
+    .header {
+      .left {
+        .iconfont {
+          color: #595858;
+          font-size: 18px;
+        }
+        .text {
+          font-size: 18px;
+          color: @text-color3;
+        }
+      }
+    }
+
+  }
+
+}

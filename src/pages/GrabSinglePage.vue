@@ -17,7 +17,7 @@
       </div>
 
       <div class="right">
-        <x-button mini type="primary">我要发单</x-button>
+        <x-button mini type="primary" @click.native="goOtherPages">我要发单</x-button>
       </div>
     </div>
 
@@ -75,6 +75,11 @@
       onItemClick(type) {
         this.currentPanel = type
       },
+
+      goOtherPages() {
+        console.log(this.$router)
+        this.$router.push('/walletPage')
+      }
     }
   }
 </script>
