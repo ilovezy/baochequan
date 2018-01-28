@@ -1,6 +1,6 @@
 <template>
 
-  <section class="card">
+  <section class="card order-card">
     <span class="ribbon">
       <span class="text">未完成</span>
     </span>
@@ -88,14 +88,8 @@
   @sub-text-color: #aaa;
   @basic-shadow-color: #aaa;
 
-  .card {
-    background: #fff;
+  .order-card {
     margin: 15px;
-    box-sizing: border-box;
-    overflow: hidden;
-    border-radius: 4px;
-    box-shadow: 0px 0px 4px @basic-shadow-color;
-    position: relative;
 
     .ribbon {
       position: absolute;

@@ -13,7 +13,7 @@
           </popover>
         </div>
         <div class="panel-top-right">
-          <div class="icon-withdraw">
+          <div class="icon-withdraw" @click="goWithdrawPage">
             <span class="icon iconfont">&#xe632;</span>提现
           </div>
         </div>
@@ -95,6 +95,10 @@
           self.detailList = data.detailList || []
         })
       },
+
+      goWithdrawPage(){
+        this.$router.push('/withdrawPage')
+      }
     }
   }
 </script>

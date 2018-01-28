@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="page login-page">
     <x-header :left-options="{backText: ''}">快捷登陆</x-header>
 
     <box class="container" gap="10px 0 0 0">
       <div class="logo">
         <img src="../assets/logo.png" alt="">
-        <div class="text" >包车圈</div>
+        <div class="text">包车圈</div>
       </div>
 
       <div class="login-form-wrap">
@@ -21,12 +21,23 @@
       </div>
 
       <div v-transfer-dom>
-        <x-dialog v-model="showHideOnBlur" class="dialog-demo"  hide-on-blur>
+        <x-dialog v-model="showHideOnBlur" class="dialog-demo" hide-on-blur>
           <div class="img-box">
             <h1>用户协议</h1>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur facilis non quos. Corporis, fugit, maxime. Ab aspernatur beatae eius eum nobis omnis optio provident quisquam quo ratione, sunt ullam velit.
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet aspernatur assumenda consequatur corporis, itaque mollitia pariatur quaerat quo repellat rerum sed tempore. Assumenda fugiat, iste maiores nesciunt optio quam repellendus vero. Expedita fuga laudantium nesciunt non optio quod sapiente sequi ullam. Aperiam cumque fugit nemo nihil, non quasi qui!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus ad adipisci aliquam architecto, asperiores commodi consequatur dolore doloremque error esse eveniet fuga harum in iure, laudantium, nemo nostrum quasi qui quisquam ratione suscipit tempore tenetur vero voluptatum! Consectetur eligendi eos fugit modi molestias non odit optio perferendis provident quaerat qui, reprehenderit tenetur voluptate? Ex fugiat impedit mollitia necessitatibus nemo odit soluta vel! Aliquid commodi doloribus fugiat iste itaque quia recusandae saepe similique tempora vero! Adipisci assumenda dicta dolores eius exercitationem inventore molestias nam nobis nostrum odit officiis optio, perspiciatis possimus quisquam repudiandae sit sunt tempore unde voluptatem voluptatum.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur facilis non quos. Corporis, fugit,
+            maxime. Ab aspernatur beatae eius eum nobis omnis optio provident quisquam quo ratione, sunt ullam velit.
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A amet aspernatur assumenda consequatur corporis,
+            itaque mollitia pariatur quaerat quo repellat rerum sed tempore. Assumenda fugiat, iste maiores nesciunt
+            optio quam repellendus vero. Expedita fuga laudantium nesciunt non optio quod sapiente sequi ullam. Aperiam
+            cumque fugit nemo nihil, non quasi qui!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus ad adipisci aliquam architecto,
+            asperiores commodi consequatur dolore doloremque error esse eveniet fuga harum in iure, laudantium, nemo
+            nostrum quasi qui quisquam ratione suscipit tempore tenetur vero voluptatum! Consectetur eligendi eos fugit
+            modi molestias non odit optio perferendis provident quaerat qui, reprehenderit tenetur voluptate? Ex fugiat
+            impedit mollitia necessitatibus nemo odit soluta vel! Aliquid commodi doloribus fugiat iste itaque quia
+            recusandae saepe similique tempora vero! Adipisci assumenda dicta dolores eius exercitationem inventore
+            molestias nam nobis nostrum odit officiis optio, perspiciatis possimus quisquam repudiandae sit sunt tempore
+            unde voluptatem voluptatum.
           </div>
           <div @click="showHideOnBlur=false">
             <span class="vux-close"></span>
@@ -49,14 +60,14 @@
 </template>
 
 <script>
-  import {XHeader, Box, TransferDom, XButton, Icon, XInput,XDialog,Toast} from 'vux'
+  import {XHeader, Box, TransferDom, XButton, Icon, XInput, XDialog, Toast} from 'vux'
 
   export default {
     directives: {
       TransferDom
     },
     components: {
-      XHeader, XButton, Box, XInput, Icon,XDialog,Toast
+      XHeader, XButton, Box, XInput, Icon, XDialog, Toast
     },
     data() {
       return {
@@ -64,7 +75,7 @@
         verificationCode: '',
         agreed: true,
         showMenus: false,
-        showHideOnBlur:false,
+        showHideOnBlur: false,
         showErrorToast: false,
         showSuccessToast: false
       }
@@ -75,7 +86,7 @@
       },
 
       validateForm() {
-        if(this.userPhone.length != 11 || this.verificationCode != '123'){
+        if (this.userPhone.length != 11 || this.verificationCode != '123') {
           this.showErrorToast = true
           return false
         } else {
@@ -84,10 +95,10 @@
       },
 
       login() {
-        if(this.validateForm()){
+        if (this.validateForm()) {
           localStorage.setItem('userPhone', this.userPhone)
           this.showSuccessToast = true
-          this.$router.push('/grabSinglePage')
+          this.$router.push('/index')
         }
       }
     }
@@ -97,88 +108,91 @@
 <style lang="less">
   @import '../style/variables.less';
 
-  .container {
-    background: #fff;
-    padding: @basic-margin;
-    padding-bottom: 150px;
+  .login-page {
 
-    .logo {
-      margin-top: @basic-margin;
-      margin-bottom: 40px;
-      text-align: center;
-      img {
-        display: inline-block;
-        width: 60px;
-        height: 60px;
-        margin-bottom: 10px;
-        background: @theme-color;
-      }
+    .container {
+      background: #fff;
+      padding: @basic-margin;
+      padding-bottom: 150px;
 
-      .text {
-        font-size: 30px;
-        font-weight: bold;
-      }
-    }
-
-    .login-form-wrap {
-      border: 1px solid @basic-border-color;
-      border-radius: 4px;
-      margin-bottom: 40px;
-
-      .phone {
-        border-bottom: 1px solid @basic-border-color;
-      }
-
-      .form-group {
-        height: 50px;
-        line-height: 50px;
-        display: flex;
-
-        .icon {
-          width: 50px;
-          text-align: center;
-          line-height: 50px;
-          font-size: 22px;
-          color: @theme-color;
+      .logo {
+        margin-top: @basic-margin;
+        margin-bottom: 40px;
+        text-align: center;
+        img {
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          margin-bottom: 10px;
+          background: @theme-color;
         }
+
+        .text {
+          font-size: 30px;
+          font-weight: bold;
+        }
+      }
+
+      .login-form-wrap {
+        border: 1px solid @basic-border-color;
+        border-radius: 4px;
+        margin-bottom: 40px;
+
+        .phone {
+          border-bottom: 1px solid @basic-border-color;
+        }
+
+        .form-group {
+          height: 50px;
+          line-height: 50px;
+          display: flex;
+
+          .icon {
+            width: 50px;
+            text-align: center;
+            line-height: 50px;
+            font-size: 22px;
+            color: @theme-color;
+          }
+
+          input {
+            background: none;
+            border: 0;
+            outline: none;
+            flex: 1;
+            font-size: 16px;
+            width: 140px;
+          }
+
+          .btn {
+            color: @theme-color;
+            display: inline-block;
+            padding-right: @basic-margin;
+            background: none;
+          }
+        }
+      }
+
+      .notice {
+        margin-bottom: @basic-margin;
+        color: #555555;
 
         input {
-          background: none;
-          border: 0;
-          outline: none;
-          flex: 1;
-          font-size: 16px;
-          width: 140px;
+          width: 16px;
+          height: 16px;
+          position: relative;
+          top: 2px;
         }
-
-        .btn {
-          color: @theme-color;
-          display: inline-block;
-          padding-right: @basic-margin;
-          background: none;
+        .link {
+          color: #44A3F3;
         }
       }
     }
 
-    .notice {
-      margin-bottom: @basic-margin;
-      color: #555555;
-
-      input {
-        width: 16px;
-        height: 16px;
-        position: relative;
-        top: 2px;
-      }
-      .link {
-        color: #44A3F3;
-      }
+    button.weui-btn {
+      height: 50px;
+      line-height: 50px;
     }
-  }
-
-  button.weui-btn {
-    height: 50px;
-    line-height: 50px;
   }
 
 </style>

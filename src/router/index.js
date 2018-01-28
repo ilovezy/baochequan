@@ -1,18 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import LoginPage from '@/pages/LoginPage' // 登陆
-import GrabSinglePage from '@/pages/GrabSinglePage' // 抢单池
-import WalletPage from '@/pages/WalletPage' // 抢单池
+import index from '@/pages/index' // 抢单池
+import WalletPage from '@/pages/WalletPage' // 我的钱包
+import WithdrawPage from '@/pages/WithdrawPage' // 提现
 
 export default new Router({
   routes: [{
     path: '/',
     component: LoginPage
   },{
-    path: "/grabSinglePage",
-    component: GrabSinglePage
+    path: "/index",
+    component: index
   }, {
     path: '/walletPage',
     component: WalletPage
+  }, {
+    path: '/withdrawPage',
+    component: WithdrawPage
   }]
 })
