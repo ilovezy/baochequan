@@ -11,7 +11,7 @@
       <div slot="drawer">
         <group title="Drawer demo(beta)" style="margin-top:20px;">
           <cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>
-          <cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>
+          <cell title="我的车辆" link="/myCarsPage" value="我的车辆" @click.native="drawerVisibility = false"></cell>
           <cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>
           <cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>
           <cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>

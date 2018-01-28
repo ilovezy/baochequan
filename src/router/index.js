@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import LoginPage from '@/pages/LoginPage' // 登陆
 import index from '@/pages/index' // 抢单池
 import WalletPage from '@/pages/WalletPage' // 我的钱包
+import MyCarsPage from '@/pages/UserCenter/MyCarsPage' // 我的车辆
 import WithdrawPage from '@/pages/WithdrawPage' // 提现
 
 export default new Router({
@@ -18,5 +19,8 @@ export default new Router({
   }, {
     path: '/withdrawPage',
     component: WithdrawPage
+  }, {
+    path: '/myCarsPage',
+    component: MyCarsPage
   }]
 })

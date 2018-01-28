@@ -1,0 +1,25 @@
+[{
+  "name": "Soso",
+  "avatar": "http://res.xiaomaiketang.com/xiaomai/riceDumpling_201703017.png",
+  "carType": "奥迪A6L",
+  "seatNumer": 5,
+  "carNumber": "浙A12221",
+  "buyTime": "2017-01-12",
+  "area": "浙江省杭州市余杭区"
+},{
+  "name": "jack",
+  "avatar": "http://res.xiaomaiketang.com/xiaomai/kiteFlying_201703017.png",
+  "carType": "宝马积极",
+  "seatNumer": 4,
+  "carNumber": "浙D12221",
+  "buyTime": "2015-01-12",
+  "area": "浙江省杭州市余杭区"
+},{
+  "name": "mark",
+  "avatar": "http://res.xiaomaiketang.com/xiaomai/treePlanting_201703017.png",
+  "carType": "法拉利",
+  "seatNumer": 7,
+  "carNumber": "浙B66666",
+  "buyTime": "2013-01-12",
+  "area": "浙江省绍兴市越城区"
+}]

@@ -114,8 +114,8 @@
       &:after {
         content: '';
         position: absolute;
-        top: 1px;
-        left: -1px;
+        top: 0;
+        left: 0;
         border-bottom: 40px solid #fff;
         border-right: 60px solid transparent;
       }
