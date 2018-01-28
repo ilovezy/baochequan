@@ -5,7 +5,7 @@
         <div class="panel-top-left">
           <span class="title">我的账户余额</span>
           <span class="number">{{userInfo.restMoney}}</span>
-          <popover placement="bottom" class="text">
+          <popover placement="bottom" class="text" v-if="userInfo.frozenMoney">
             <div slot="content" class="popover-content">
               冻结金额为您抢单时所交的保证金，行程结束后自动返还，在此期间不能提现。
             </div>
@@ -58,7 +58,7 @@
             +{{item.number}}
           </div>
           <div class="number success" v-else>
-            -{{item.number}}
+            {{item.number}}
           </div>
         </div>
       </cell-box>
