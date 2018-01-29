@@ -48,48 +48,56 @@
         </tab>
 
         <tab v-else>
-          <tab-item selected @on-item-click="onItemClick">已发货1</tab-item>
-          <tab-item @on-item-click="onItemClick">未发货1</tab-item>
-          <tab-item @on-item-click="onItemClick">全部订单1</tab-item>
+          <tab-item selected @on-item-click="onItemClick">已发订单</tab-item>
+          <tab-item @on-item-click="onItemClick">代开始</tab-item>
+          <tab-item @on-item-click="onItemClick">已完成</tab-item>
         </tab>
 
         <div class="content-container">
-          <order-sea-content v-if="currentPanel=='orderSea'"></order-sea-content>
-          <get-order-content v-if="currentPanel=='getOrder'"></get-order-content>
-          <completed-order-content v-if="currentPanel=='completedOrder'"></completed-order-content>
+          <div class="control-bar">
+            <div class="number">{{orderNum}}个订单</div>
+            <select class="form-control" v-model="filter" @change="filterChange">
+              <option value="1">智能排序</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+          <div class="card-list-container">
+            <order-card v-for="(item, index) in orderList"
+                        v-if="orderList.length > 0"
+                        :card-info="item"
+                        :key="index"/>
+            <div class="no-data" v-else>
+              <div class="notice">
+                暂无订单数据
+              </div>
+              <x-button type="primary">去发单</x-button>
+            </div>
+          </div>
         </div>
 
       </view-box>
     </drawer>
-
-
   </div>
 </template>
 
 <script>
   import {XHeader, Box, TransferDom, XButton, Tab, TabItem, Drawer, Group, Cell, ViewBox} from 'vux'
-  import OrderSeaContent from './GrabSinglePageComponent/OrderSeaContent'
-  import GetOrderContent from './GrabSinglePageComponent/GetOrderContent'
-  import CompletedOrderContent from './GrabSinglePageComponent/CompletedOrderContent'
+  import OrderCard from '@/components/OrderCard'
 
   export default {
     directives: {
       TransferDom,
     },
     components: {
-      XHeader,
-      XButton,
-      Box,
-      Tab,
-      TabItem,
-      OrderSeaContent,
-      GetOrderContent,
-      CompletedOrderContent,
-      Drawer,
-      Group,
-      Cell,
-      ViewBox
+      XHeader,XButton, Box, Tab, TabItem, Drawer, Group, Cell, ViewBox,OrderCard
     },
+
+    mounted() {
+      this.getData()
+    },
+
     data() {
       return {
         name: '李永波',
@@ -98,14 +106,40 @@
         transitionName: '',
         showGrab: true,
 
+        filter: 1,
+        orderList: [],
+
         currentPanel: 'orderSea',
 
         drawerVisibility: false,
         showModeValue: 'overlay', //  'overlay' or 'push'
-        showPlacementValue: 'left' // 'left' or 'right'
+        showPlacementValue: 'left', // 'left' or 'right'
       }
     },
+
+    computed: {
+      orderNum(){
+        return this.orderList.length || 0
+      }
+    },
+
     methods: {
+      getData() {
+        // 这里的6种情况其实都只需要根据状态来判断即可，
+        const self = this
+        let param = {
+          dataType: this.currentPanel,
+          filter: this.filter,
+        }
+        axios.get('static/puppetData/orderList.json', param).then((res) => {
+          self.orderList = window.formatJsonData(res.data)
+        })
+      },
+
+      filterChange() {
+        this.getData() // filter变化的时候去调用数据即可
+      },
+
       openDrawer() {
         this.drawerVisibility = true
       },
@@ -127,6 +161,8 @@
 
 <style lang="less">
   @import '../style/basic.less';
+  @sub-text-color: #aaa;
+  @basic-shadow-color: #aaa;
 
   .grab-singe-page {
     .header {
@@ -188,6 +224,34 @@
             background: #fff;
           }
 
+        }
+      }
+    }
+
+    .control-bar {
+      background: #fff;
+      height: 45px;
+      line-height: 45px;
+      display: flex;
+      justify-content: space-between;
+      box-shadow: 0 0 4px @basic-shadow-color;
+      padding: 0 15px;
+      align-items: center;
+      .number {
+        color: @sub-text-color;
+      }
+    }
+
+    .card-list-container {
+      padding-bottom: 150px;
+
+      .no-data {
+        width: 40%;
+        margin: 0 auto;
+        margin-top: 100px;
+        text-align: center;
+        .notice {
+          margin-bottom: 25px;
         }
       }
     }

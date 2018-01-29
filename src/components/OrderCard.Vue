@@ -13,45 +13,51 @@
       <div class="basic-info">
         <div class="top">
           <span class="name">{{cardInfo.name}}</span>
-          <span class="badge">旅行社</span>
+          <span class="badge"
+                :class="cardInfo.iconType == 1 ? 'info' : ''">{{cardInfo.tag}}</span>
         </div>
 
         <div class="bottom">
-          <span class="info">下单20次 服务50次</span>
-          <span class="order-id">订单号：123113</span>
+          <span class="info">下单{{cardInfo.totalOrder}}次 服务{{cardInfo.totalService}}次</span>
+          <span class="order-id">订单号：{{cardInfo.orderId}}</span>
         </div>
       </div>
     </div>
 
     <div class="body">
-      <span class="icon iconfont to-detail">&#xe697;</span>
+      <!--<span class="icon iconfont to-detail">&#xe697;</span>-->
       <div class="list-item">
         <span class="icon iconfont">&#xe68a;</span>
         <span class="title">用车座位</span>
-        <span class="content">50座</span>
+        <span class="content">{{cardInfo.userCarNum}}座</span>
       </div>
       <div class="list-item">
         <span class="icon iconfont text-info">&#xe606;</span>
-        <span class="title">用车座位</span>
-        <span class="content text-danger">50座</span>
+        <span class="title text-danger">用车时间</span>
+        <span class="content text-danger">{{cardInfo.beginDate}} 共{{cardInfo.totalDay}}天</span>
       </div>
       <div class="list-item">
         <span class="icon iconfont text-info">&#xe798;</span>
-        <span class="title">用车</span>
-        <span class="content">50座</span>
+        <span class="title">行程</span>
+        <span class="content">{{cardInfo.startPoint}} - {{cardInfo.endPoint}}</span>
       </div>
       <div class="list-item">
         <span class="icon iconfont text-warning">&#xe630;</span>
-        <span class="title">用车座</span>
-        <span class="content">50座</span>
+        <span class="title">总里程</span>
+        <span class="content">{{cardInfo.totalLength}} 公里</span>
       </div>
     </div>
 
     <div class="footer">
-      <div class="status">已有27人报价</div>
+      <div class="price" v-if="cardInfo.price">￥{{cardInfo.price}}</div>
+      <div class="status" v-else>已有{{cardInfo.peopleCount}}人报价</div>
       <div>
-        <x-button type="primary" mini>
-          选择司机
+        <x-button type="primary" mini v-if="cardInfo.price">
+          立即抢单
+        </x-button>
+
+        <x-button type="primary" mini v-else>
+          我要报价
         </x-button>
       </div>
     </div>
@@ -159,6 +165,10 @@
             background: @theme-color;
             color: #fff;
             transform: scale(0.8);
+
+            &.info{
+              background: #3d5df1;
+            }
           }
         }
 
