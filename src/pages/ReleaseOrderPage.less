@@ -53,6 +53,113 @@
         }
 
       }
+
+      .form-item-type {
+        .content {
+          button {
+            display: inline-block;
+            height: 30px;
+            line-height: 30px;
+            width: 70px;
+            padding: 0;
+            margin-right: 15px;
+            margin-top: 0;
+          }
+
+          .text-wrap {
+            border: 1px solid @basic-border-color;
+            padding: 10px;
+            font-size: 13px;
+            width: 94%;
+            margin-top: 15px;
+            color: @theme-color-danger;
+          }
+        }
+      }
+
+      .form-item-double {
+        .label {
+          display: inline-block;
+        }
+
+        .content {
+          display: inline-block;
+        }
+      }
+
+      .form-item-spe {
+        margin-bottom: 0;
+        padding-right: 15px;
+
+        .label {
+          width: 100px;
+          -ms-text-align-last: right;
+          text-align-last: right;
+          .iconfont {
+            font-size: 20px;
+            margin-right: 5px;
+            vertical-align: sub;
+          }
+        }
+
+        .content {
+          text-align: right;
+          color: #aaa;
+        }
+      }
+
+      .from-item-return {
+        .select-date {
+          border: 1px solid @basic-border-color;
+          border-radius: 4px;
+          position: relative;
+          height: 35px;
+          overflow: hidden;
+          .placeholder {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            z-index: 11;
+          }
+          .datepicker {
+            height: 35px;
+            margin-top: 0 !important;
+            .iconfont {
+              position: absolute;
+              top: 5px;
+              left: 5px;
+              display: inline-block;
+              z-index: 10;
+            }
+          }
+        }
+      }
+
+      .form-textarea {
+        .form-control {
+          width: 100%;
+          height: 100px;
+        }
+      }
+
+      .form-checkboxList {
+        padding: 15px;
+        .notice{
+          margin-bottom: 10px;
+        }
+        .checklist-container {
+          .check-item{
+            display: inline-block;
+            width: 30%;
+            margin-bottom: 10px;
+
+            input {
+              display: inline-block;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
     }
 
     .btn-wrap {
