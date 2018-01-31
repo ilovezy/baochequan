@@ -9,6 +9,7 @@ import BidRecordPage from '@/pages/BidRecordPage' // 竞价记录
 import ReleaseOrderPage from '@/pages/ReleaseOrderPage' // 发布订单
 import CarRegisterPage from '@/pages/CarRegisterPage' // 发布订单
 import DriverDetailPage from '@/pages/DriverDetailPage' // 司机详情
+import OrderDetailPage from '@/pages/OrderDetailPage' // 订单详情
 
 export default new Router({
   routes: [{
@@ -38,5 +39,8 @@ export default new Router({
   }, {
     path: '/driverDetailPage',
     component: DriverDetailPage
+  }, {
+    path: '/orderDetailPage',
+    component: OrderDetailPage
   }]
 })

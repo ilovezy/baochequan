@@ -50,6 +50,12 @@
               <span class="iconfont">&#xe62b;</span>推荐车主
             </router-link>
           </li>
+
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/orderDetailPage'}">
+              <span class="iconfont">&#xe62b;</span>订单详情
+            </router-link>
+          </li>
         </ul>
       </div>
 
