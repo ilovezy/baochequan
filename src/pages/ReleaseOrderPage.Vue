@@ -60,9 +60,7 @@
                 <div class="label">车辆数</div>
                 <div class="content">
                   <select class="form-control">
-                    <option value="1">1辆</option>
-                    <option value="2">2辆</option>
-                    <option value="3">3辆</option>
+                    <option value="1" v-for="(item, index) in carNumList">{{item}}辆</option>
                   </select>
                 </div>
               </flexbox-item>
@@ -292,6 +290,7 @@
           passPointList: []
         }],
 
+        carNumList: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19],
         seatType: [{
           type: 1, text: '全选'
         }, {
