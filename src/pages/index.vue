@@ -8,15 +8,49 @@
       :drawer-style="{'background-color':'#35495e', width: '200px'}">
 
       <!-- drawer content -->
-      <div slot="drawer">
-        <group title="Drawer demo(beta)" style="margin-top:20px;">
-          <cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>
-          <cell title="我的车辆" link="/myCarsPage" value="我的车辆" @click.native="drawerVisibility = false"></cell>
-          <cell title="竞价记录" link="/bidRecordPage" value="竞价记录" @click.native="drawerVisibility = false"></cell>
-          <cell title="我要发单" link="/releaseOrderPage" value="我要发单" @click.native="drawerVisibility = false"></cell>
-          <cell title="车辆注册" link="/carRegisterPage" value="车辆注册" @click.native="drawerVisibility = false"></cell>
-          <cell title="司机详情" link="/driverDetailPage" value="司机详情" @click.native="drawerVisibility = false"></cell>
-        </group>
+      <div slot="drawer" class="drawer-container">
+        <!--<group title="Drawer demo(beta)" style="margin-top:20px;">-->
+        <!--<cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>-->
+        <!--<cell title="我的车辆" link="/myCarsPage" value="我的车辆" @click.native="drawerVisibility = false"></cell>-->
+        <!--<cell title="竞价记录" link="/bidRecordPage" value="竞价记录" @click.native="drawerVisibility = false"></cell>-->
+        <!--<cell title="我要发单" link="/releaseOrderPage" value="我要发单" @click.native="drawerVisibility = false"></cell>-->
+        <!--<cell title="车辆注册" link="/carRegisterPage" value="车辆注册" @click.native="drawerVisibility = false"></cell>-->
+        <!--<cell title="司机详情" link="/driverDetailPage" value="司机详情" @click.native="drawerVisibility = false"></cell>-->
+        <!--</group>-->
+        <div class="top">
+          <span class="avatar">
+            <img src="../assets/avatar.png" alt="">
+          </span>
+          <div class="text">莫国富</div>
+        </div>
+
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/walletPage'}">
+              <span class="iconfont">&#xe60b;</span>钱包
+            </router-link>
+          </li>
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/walletPage'}">
+              <span class="iconfont">&#xe61f;</span>客服
+            </router-link>
+          </li>
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/walletPage'}">
+              <span class="iconfont">&#xe65b;</span>设置
+            </router-link>
+          </li>
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/walletPage'}">
+              <span class="iconfont">&#xe68a;</span>车辆列表
+            </router-link>
+          </li>
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/walletPage'}">
+              <span class="iconfont">&#xe62b;</span>推荐车主
+            </router-link>
+          </li>
+        </ul>
       </div>
 
       <view-box ref="viewBox">
@@ -91,7 +125,7 @@
       TransferDom,
     },
     components: {
-      XHeader,XButton, Box, Tab, TabItem, Drawer, Group, Cell, ViewBox,OrderCard
+      XHeader, XButton, Box, Tab, TabItem, Drawer, Group, Cell, ViewBox, OrderCard
     },
 
     mounted() {
@@ -111,14 +145,14 @@
 
         currentPanel: 'orderSea',
 
-        drawerVisibility: false,
+        drawerVisibility: true,
         showModeValue: 'overlay', //  'overlay' or 'push'
         showPlacementValue: 'left', // 'left' or 'right'
       }
     },
 
     computed: {
-      orderNum(){
+      orderNum() {
         return this.orderList.length || 0
       }
     },
@@ -160,132 +194,5 @@
 </script>
 
 <style lang="less">
-  @import '../style/basic.less';
-  @sub-text-color: #aaa;
-  @basic-shadow-color: #aaa;
-
-  .grab-singe-page {
-    .header {
-      padding: 10px @basic-margin;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid @basic-border-color;
-
-      .left {
-        width: 30%;
-        display: flex;
-        align-items: center;
-
-        .avatar {
-          display: inline-block;
-          width: 40px;
-          height: 40px;
-          border-radius: 40px;
-          overflow: hidden;
-          margin-right: 5px;
-          img {
-            width: 100%;
-          }
-        }
-
-        .user-info {
-          width: 80px;
-          line-height: 20px;
-          .name {
-            font-size: 14px;
-            color: #222;
-          }
-          .phone {
-            font-size: 12px;
-            color: #bbb;
-          }
-        }
-      }
-
-      .center {
-        display: flex;
-        flex-grow: 1;
-        /*margin-left: 10px;*/
-        margin-right: 10px;
-        position: relative;
-        top: 17px;
-        a {
-          width: 50%;
-          height: 35px;
-          line-height: 35px;
-          text-align: center;
-          box-sizing: border-box;
-
-          &.active {
-            border-left: 1px solid @basic-border-color;
-            border-top: 1px solid @basic-border-color;
-            border-right: 1px solid @basic-border-color;
-            background: #fff;
-          }
-
-        }
-      }
-    }
-
-    .control-bar {
-      background: #fff;
-      height: 45px;
-      line-height: 45px;
-      display: flex;
-      justify-content: space-between;
-      box-shadow: 0 0 4px @basic-shadow-color;
-      padding: 0 15px;
-      align-items: center;
-      .number {
-        color: @sub-text-color;
-      }
-    }
-
-    .card-list-container {
-      padding-bottom: 150px;
-
-      .no-data {
-        width: 40%;
-        margin: 0 auto;
-        margin-top: 100px;
-        text-align: center;
-        .notice {
-          margin-bottom: 25px;
-        }
-      }
-    }
-
-    .vux-pop-out-enter-active,
-    .vux-pop-out-leave-active,
-    .vux-pop-in-enter-active,
-    .vux-pop-in-leave-active {
-      will-change: transform;
-      transition: all 500ms;
-      height: 100%;
-      top: 46px;
-      position: absolute;
-      backface-visibility: hidden;
-      perspective: 1000;
-    }
-    .vux-pop-out-enter {
-      opacity: 0;
-      transform: translate3d(-100%, 0, 0);
-    }
-    .vux-pop-out-leave-active {
-      opacity: 0;
-      transform: translate3d(100%, 0, 0);
-    }
-    .vux-pop-in-enter {
-      opacity: 0;
-      transform: translate3d(100%, 0, 0);
-    }
-    .vux-pop-in-leave-active {
-      opacity: 0;
-      transform: translate3d(-100%, 0, 0);
-    }
-    .menu-title {
-      color: #888;
-    }
-  }
+  @import "./index";
 </style>

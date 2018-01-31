@@ -1,0 +1,178 @@
+@import '../style/basic.less';
+
+@sub-text-color: #aaa;
+@basic-shadow-color: #aaa;
+
+.grab-singe-page {
+  .header {
+    padding: 10px @basic-margin;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid @basic-border-color;
+
+    .left {
+      width: 30%;
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        overflow: hidden;
+        margin-right: 5px;
+        img {
+          width: 100%;
+        }
+      }
+
+      .user-info {
+        width: 80px;
+        line-height: 20px;
+        .name {
+          font-size: 14px;
+          color: #222;
+        }
+        .phone {
+          font-size: 12px;
+          color: #bbb;
+        }
+      }
+    }
+
+    .center {
+      display: flex;
+      flex-grow: 1;
+      /*margin-left: 10px;*/
+      margin-right: 10px;
+      position: relative;
+      top: 17px;
+      a {
+        width: 50%;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        box-sizing: border-box;
+
+        &.active {
+          border-left: 1px solid @basic-border-color;
+          border-top: 1px solid @basic-border-color;
+          border-right: 1px solid @basic-border-color;
+          background: #fff;
+        }
+
+      }
+    }
+  }
+
+  .control-bar {
+    background: #fff;
+    height: 45px;
+    line-height: 45px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 4px @basic-shadow-color;
+    padding: 0 15px;
+    align-items: center;
+    .number {
+      color: @sub-text-color;
+    }
+  }
+
+  .card-list-container {
+    padding-bottom: 150px;
+
+    .no-data {
+      width: 40%;
+      margin: 0 auto;
+      margin-top: 100px;
+      text-align: center;
+      .notice {
+        margin-bottom: 25px;
+      }
+    }
+  }
+
+  //侧边栏
+  .vux-drawer {
+    .vux-drawer-content {
+      background: #2D2F2E;
+    }
+    .drawer-container {
+      color: #fff;
+      .top {
+        margin: 35px 0;
+        text-align: center;
+        .avatar {
+          display: inline-block;
+          width: 60px;
+          height: 60px;
+          border-radius: 60px;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      .nav-list {
+        .nav-list-item {
+          font-size: 18px;
+          display: flex;
+          align-items: center;
+          a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            color: #fff!important;
+            &:link {color: #fff}
+            &:visited {color: #fff}
+            &:hover {color: #fff}
+            &:active {background: DARKEN(#2D2F2E, 3%)}
+          }
+          .iconfont {
+            font-size: 22px;
+            margin-right: 15px;
+          }
+        }
+      }
+
+    }
+  }
+
+  .vux-pop-out-enter-active,
+  .vux-pop-out-leave-active,
+  .vux-pop-in-enter-active,
+  .vux-pop-in-leave-active {
+    will-change: transform;
+    transition: all 500ms;
+    height: 100%;
+    top: 46px;
+    position: absolute;
+    backface-visibility: hidden;
+    perspective: 1000;
+  }
+  .vux-pop-out-enter {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  .vux-pop-out-leave-active {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  .vux-pop-in-enter {
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+  }
+  .vux-pop-in-leave-active {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  .menu-title {
+    color: #888;
+  }
+}
