@@ -78,7 +78,9 @@
           </div>
         </div>
 
-        <div class="form-panel">
+        <div class="form-panel"
+             v-for="(item, index) in useCarList"
+             :key="index">
           <div class="form-item">
             <div class="label">用车时间</div>
             <div class="content">
@@ -87,7 +89,7 @@
           </div>
 
           <div class="form-item">
-            <div class="label">第一天<br>出发地</div>
+            <div class="label">第{{index+1}}天<br>出发地</div>
             <div class="content">
               <input type="text" class="form-control" placeholder="请输入出发地点城市和详细地址">
             </div>
@@ -115,43 +117,12 @@
               <input type="text" class="form-control" placeholder="请输入出发地点城市和详细地址">
             </div>
           </div>
-        </div>
 
-        <div class="form-panel">
-          <div class="form-item">
-            <div class="label">用车时间</div>
-            <div class="content">
-              <input type="text" class="form-control">
-            </div>
-          </div>
-
-          <div class="form-item">
-            <div class="label">第一天<br>出发地</div>
-            <div class="content">
-              <input type="text" class="form-control" placeholder="请输入出发地点城市和详细地址">
-            </div>
-          </div>
-
-          <div class="form-item">
+          <div class="form-item from-item-action">
             <div class="label"></div>
             <div class="content">
-              <x-button type="primary">
-                <span class="icon iconfont">&#xe688;</span> 添加途径点
-              </x-button>
-            </div>
-          </div>
-
-          <div class="form-item">
-            <div class="label">途径地</div>
-            <div class="content">
-              <input type="text" class="form-control" placeholder="请输入出发地点城市和详细地址">
-            </div>
-          </div>
-
-          <div class="form-item">
-            <div class="label">目的地</div>
-            <div class="content">
-              <input type="text" class="form-control" placeholder="请输入出发地点城市和详细地址">
+              <x-button type="primary" @click.native="addUserCarItem">添加车程</x-button>
+              <x-button type="primary" @click.native="removeUserCarItem(index)">删除车程</x-button>
             </div>
           </div>
         </div>
@@ -293,6 +264,7 @@
 
 <script>
   import {TransferDom, XHeader, XButton, Tab, TabItem, Sticky, Flexbox, FlexboxItem, Datetime, Group, Popup} from 'vux'
+  import index from "../router";
 
   export default {
     directives: {
@@ -307,7 +279,8 @@
         selectTab: 0,
         orderType: 1,
         returnDate: '',
-        showPopUp: false
+        showPopUp: false,
+        useCarList: [{}],
       }
     },
     mounted() {
@@ -322,7 +295,17 @@
       },
 
       openBottomBar() {
-this.showPopUp = true
+        this.showPopUp = true
+      },
+
+      addUserCarItem() {
+        this.useCarList.push({})
+      },
+
+      removeUserCarItem(index) {
+        if (index > 0) {
+          this.useCarList.splice(index - 1, 1)
+        }
       }
     }
   }
