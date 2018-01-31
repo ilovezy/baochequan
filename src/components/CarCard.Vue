@@ -35,8 +35,6 @@
     directives: {
       TransferDom,
     },
-    components: {
-    },
     props: {
       cardInfo: {}
     },
@@ -60,45 +58,43 @@
     padding: 10px;
     display: flex;
     justify-content: space-between;
+
     .ribbon-left {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 6px;
+      left: -26px;
       background: #ff272f;
       color: #fff;
-      width: 60px;
-      height: 40px;
+      width: 100px;
+      height: 20px;
       font-size: 12px;
+      line-height: 20px;
+      transform: rotate(-30deg);
+      text-align: center;
+
       &.warning {
         background: #e28521;
       }
-      .text {
-        display: inline-block;
-        position: absolute;
-        top: 7px;
-        left: 0px;
-        transform: rotate(-30deg);
-        overflow: hidden;
-      }
-      &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-bottom: 40px solid #fff;
-        border-left: 60px solid transparent;
-      }
     }
+
     .left {
       width: 100px;
       height: 100px;
       overflow: hidden;
+      margin-right: 15px;
       img {
         width: 100%;
       }
 
     }
 
+    @media screen and (max-width: 320px) {
+      .left {
+        width: 60px;
+        height: 60px;
+        margin-right: 10px;
+      }
+    }
     .right {
       .list-container {
         .list-item {

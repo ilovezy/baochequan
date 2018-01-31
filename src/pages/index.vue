@@ -41,7 +41,7 @@
             </router-link>
           </li>
           <li class="nav-list-item">
-            <router-link :to="{ path: '/walletPage'}">
+            <router-link :to="{ path: '/myCarsPage'}">
               <span class="iconfont">&#xe68a;</span>车辆列表
             </router-link>
           </li>

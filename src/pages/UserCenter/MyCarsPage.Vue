@@ -24,7 +24,7 @@
 
 <script>
 
-  import {XHeader, Box, TransferDom, XButton, Icon, XInput, Selector, XDialog, Toast, Group, Cell} from 'vux'
+  import {XHeader, Box, TransferDom, XButton,Selector, Group, Cell} from 'vux'
   import CarCard from '@/components/CarCard'
 
   export default {
@@ -32,11 +32,7 @@
       TransferDom
     },
     components: {
-      XHeader, XButton, Box, XInput, Icon, XDialog, Toast, Group, Cell,Selector,CarCard
-    },
-
-    computed: {
-
+      XHeader, XButton, Box, Group, Cell,Selector,CarCard
     },
 
     mounted() {

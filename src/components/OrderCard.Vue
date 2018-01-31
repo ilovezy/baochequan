@@ -96,36 +96,24 @@
 
   .order-card {
     margin: 15px;
+    position: relative;
 
     .ribbon {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 6px;
+      right: -26px;
       background: #ff272f;
       color: #fff;
-      width: 60px;
-      height: 40px;
+      width: 100px;
+      height: 20px;
       font-size: 12px;
+      line-height: 20px;
+      transform: rotate(30deg);
+      text-align: center;
+
       &.warning {
         background: #e28521;
       }
-      .text {
-        display: inline-block;
-        position: absolute;
-        top: 7px;
-        right: 3px;
-        transform: rotate(30deg);
-        overflow: hidden;
-      }
-      &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        border-bottom: 40px solid #fff;
-        border-right: 60px solid transparent;
-      }
-
     }
 
     .header {
