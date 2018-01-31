@@ -49,9 +49,10 @@
                 <div class="label">座位数</div>
                 <div class="content">
                   <select class="form-control">
-                    <option value="5">5座</option>
-                    <option value="7">7座</option>
-                    <option value="9">9座</option>
+                    <option v-for="(item, index) in seatType"
+                            :key="index"
+                            value="item.type">{{item.text}}
+                    </option>
                   </select>
                 </div>
               </flexbox-item>
@@ -78,7 +79,11 @@
           </div>
 
           <ul class="concat-people-list">
-            <li class="people-item" v-for="(item, index) in contactPeopleList" :key="index">
+            <li class="people-item"
+                v-for="(item, index) in contactPeopleList"
+                :key="index">
+              <span class="name">姓名：{{item.name}}</span>
+              <span class="phone">手机号：{{item.phone}}</span>
               <span class="iconfont" @click="removeContactPeopleItem(index)">&#xe62a;</span>
             </li>
           </ul>
@@ -212,26 +217,10 @@
             <p class="notice">请选择推送的司机类型</p>
 
             <div class="checklist-container">
-              <label class="check-item">
-                <input type="checkbox">全选
-              </label>
-              <label class="check-item">
-                <input type="checkbox">5座
-              </label>
-              <label class="check-item">
-                <input type="checkbox">7座
-              </label>
-              <label class="check-item">
-                <input type="checkbox">15座
-              </label>
-              <label class="check-item">
-                <input type="checkbox">18-22座
-              </label>
-              <label class="check-item">
-                <input type="checkbox">30-37座
-              </label>
-              <label class="check-item">
-                <input type="checkbox">53-57座
+              <label class="check-item"
+                     v-for="(seat, index) in seatType"
+                     :key="index">
+                <input type="checkbox" v-model="seat.type"> {{seat.text}}
               </label>
             </div>
             <div class="checklist-container">
@@ -252,21 +241,19 @@
       <popup v-model="showPopUp" class="pop-up" position="bottom" max-height="50%">
         <div class="top">
           <div class="left" @click="showPopUp = false">取消</div>
-          <div class="right text-danger">确定</div>
+          <div class="right text-danger" @click="addContactPeople">确定</div>
         </div>
 
         <div class="popup-form">
           <div class="form-item">
-            <span class="icon iconfont">&#xe63e;</span>
-            <input type="text">
+            <span class="icon iconfont">&#xe63e;</span><input type="text" v-model="contactPeopleName">
           </div>
           <div class="form-item">
-            <span class="icon iconfont">&#xe600;</span>
-            <input type="text">
+            <span class="icon iconfont">&#xe600;</span><input type="number" v-model="contactPeoplePhone">
           </div>
 
           <div class="btn">
-            <span class="icon iconfont text-danger">&#xe610;</span>添加更多联系人
+            <span class="icon iconfont text-danger" @click="addContactPeople">&#xe610;</span>添加更多联系人
           </div>
         </div>
       </popup>
@@ -292,10 +279,32 @@
         orderType: 1,
         returnDate: '',
         showPopUp: false,
-        contactPeopleList: [{}],
+
+        contactPeopleName: '',
+        contactPeoplePhone: '',
+        contactPeopleList: [{
+          name: 'jack',
+          phone: '18768143322'
+        }],
         useCarList: [{
           passPointList: []
         }],
+
+        seatType: [{
+          type: 1, text: '全选'
+        }, {
+          type: 2, text: '5座'
+        }, {
+          type: 3, text: '7座'
+        }, {
+          type: 4, text: '15座'
+        }, {
+          type: 5, text: '18-22座'
+        }, {
+          type: 6, text: '30-37座'
+        }, {
+          type: 7, text: '53-57座'
+        }]
       }
     },
     mounted() {
@@ -311,6 +320,17 @@
 
       openBottomBar() {
         this.showPopUp = true
+      },
+
+      addContactPeople() {
+        // TODO valid form
+        this.contactPeopleList.push({
+          name: this.contactPeopleName,
+          phone: this.contactPeoplePhone
+        })
+
+        this.contactPeopleName = ''
+        this.contactPeoplePhone = ''
       },
 
       removeContactPeopleItem(index) {
@@ -329,11 +349,11 @@
         }
       },
 
-      addPassPoint(item){
+      addPassPoint(item) {
         item.passPointList.push({})
       },
 
-      removePassPoint(item, index){
+      removePassPoint(item, index) {
         item.passPointList.splice(index, 1)
       }
     }
