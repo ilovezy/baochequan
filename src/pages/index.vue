@@ -99,15 +99,25 @@
           </div>
           <div class="card-list-container">
             <order-card v-for="(item, index) in orderList"
+                        <!--v-if="orderList.length > 0"-->
+                        <!--:card-info="item"-->
+                        <!--:key="index"/>-->
+            <!--<div class="no-data" v-else>-->
+              <!--<div class="notice">-->
+                <!--暂无订单数据-->
+              <!--</div>-->
+              <!--<x-button type="primary">去发单</x-button>-->
+            <!--</div>-->
+              <p v-for="item in list">
+                Line:
+                <span v-text="item"></span>
+              </p>
+
+            <order-card v-for="(item, index) in orderList"
                         v-if="orderList.length > 0"
                         :card-info="item"
                         :key="index"/>
-            <div class="no-data" v-else>
-              <div class="notice">
-                暂无订单数据
-              </div>
-              <x-button type="primary">去发单</x-button>
-            </div>
+            <infinite-loading @infinite="infiniteHandler"></infinite-loading>
           </div>
         </div>
 
@@ -119,13 +129,15 @@
 <script>
   import {XHeader, Box, TransferDom, XButton, Tab, TabItem, Drawer, Group, Cell, ViewBox} from 'vux'
   import OrderCard from '@/components/OrderCard'
+  import InfiniteLoading from 'vue-infinite-loading';
 
   export default {
     directives: {
       TransferDom,
     },
     components: {
-      XHeader, XButton, Box, Tab, TabItem, Drawer, Group, Cell, ViewBox, OrderCard
+      XHeader, XButton, Box, Tab, TabItem, Drawer, Group, Cell, ViewBox, OrderCard,
+      InfiniteLoading
     },
 
     mounted() {
@@ -148,6 +160,8 @@
         drawerVisibility: true,
         showModeValue: 'overlay', //  'overlay' or 'push'
         showPlacementValue: 'left', // 'left' or 'right'
+
+        list: [],
       }
     },
 
@@ -188,7 +202,34 @@
 
       goReleaseOrderPages() {
         this.$router.push('/releaseOrderPage')
-      }
+      },
+
+      infiniteHandler($state) {
+        setTimeout(() => {
+          const temp = [];
+          for (let i = this.orderList.length + 1; i <= this.orderList.length + 3; i++) {
+            temp.push({
+              "name": "Soso",
+              "avatar": "http://res.xiaomaiketang.com/xiaomai/riceDumpling_201703017.png",
+              "tag": "车队",
+              "iconType": 1,
+              "totalOrder": 12,
+              "totalService": 6,
+              "orderId": "20131",
+              "userCarNum": 5,
+              "beginDate": "2018-02-01 15:15",
+              "totalDay": 1,
+              "startPoint": "杭州市",
+              "endPoint": "上海市",
+              "totalLength": 198.00,
+              "price": 0,
+              "peopleCount": 33
+            });
+          }
+          this.orderList = this.orderList.concat(temp);
+          $state.loaded();
+        }, 1000);
+      },
     }
   }
 </script>
