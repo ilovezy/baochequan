@@ -76,6 +76,12 @@
               添加 <span class="icon iconfont">&#xe78b;</span>
             </div>
           </div>
+
+          <ul class="concat-people-list">
+            <li class="people-item" v-for="(item, index) in contactPeopleList" :key="index">
+              <span class="iconfont" @click="removeContactPeopleItem(index)">&#xe62a;</span>
+            </li>
+          </ul>
         </div>
 
         <div class="form-panel"
@@ -98,16 +104,22 @@
           <div class="form-item">
             <div class="label"></div>
             <div class="content">
-              <x-button type="primary">
+              <x-button type="primary" @click.native="addPassPoint(item)">
                 <span class="icon iconfont">&#xe688;</span> 添加途径点
               </x-button>
             </div>
           </div>
 
-          <div class="form-item">
+          <div class="form-item form-item-passPoint" v-if="item.passPointList.length > 0">
             <div class="label">途径地</div>
             <div class="content">
-              <input type="text" class="form-control" placeholder="请输入出发地点城市和详细地址">
+              <div class="pass-point-item" v-for="(passPoint, index) in item.passPointList">
+                <input type="text"
+                       class="form-control"
+                       placeholder="请输入出发地点城市和详细地址"
+                       v-model="passPoint.value">
+                <span class="iconfont" @click="removePassPoint(item, index)">&#xe62a;</span>
+              </div>
             </div>
           </div>
 
@@ -121,8 +133,8 @@
           <div class="form-item from-item-action">
             <div class="label"></div>
             <div class="content">
-              <x-button type="primary" @click.native="addUserCarItem">添加车程</x-button>
-              <x-button type="primary" @click.native="removeUserCarItem(index)">删除车程</x-button>
+              <x-button type="primary" @click.native="addUserCarItem">添加次日行程</x-button>
+              <x-button type="primary" @click.native="removeUserCarItem(index)">删除此行程</x-button>
             </div>
           </div>
         </div>
@@ -280,7 +292,10 @@
         orderType: 1,
         returnDate: '',
         showPopUp: false,
-        useCarList: [{}],
+        contactPeopleList: [{}],
+        useCarList: [{
+          passPointList: []
+        }],
       }
     },
     mounted() {
@@ -298,14 +313,28 @@
         this.showPopUp = true
       },
 
+      removeContactPeopleItem(index) {
+        this.contactPeopleList.splice(index, 1)
+      },
+
       addUserCarItem() {
-        this.useCarList.push({})
+        this.useCarList.push({
+          passPointList: []
+        })
       },
 
       removeUserCarItem(index) {
         if (index > 0) {
           this.useCarList.splice(index - 1, 1)
         }
+      },
+
+      addPassPoint(item){
+        item.passPointList.push({})
+      },
+
+      removePassPoint(item, index){
+        item.passPointList.splice(index, 1)
       }
     }
   }
