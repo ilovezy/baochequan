@@ -1,6 +1,8 @@
 <template>
   <div class="page wallet-page">
     <div class="wallet-panel">
+      <span class="iconfont icon-back" @click="back">&#xe607;</span>
+
       <div class="panel-top">
         <div class="panel-top-left">
           <span class="title">我的账户余额</span>
@@ -98,6 +100,9 @@
 
       goWithdrawPage(){
         this.$router.push('/withdrawPage')
+      },
+      back(){
+        this.$router ? this.$router.back() : window.history.back()
       }
     }
   }

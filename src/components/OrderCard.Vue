@@ -25,7 +25,6 @@
     </div>
 
     <div class="body">
-      <!--<span class="icon iconfont to-detail">&#xe697;</span>-->
       <div class="list-item">
         <span class="icon iconfont">&#xe68a;</span>
         <span class="title">用车座位</span>
@@ -77,9 +76,7 @@
       cardInfo: {}
     },
     data() {
-      return {
-
-      }
+      return {}
     },
     mounted() {
       console.log(this.cardInfo)
@@ -154,7 +151,7 @@
             color: #fff;
             transform: scale(0.8);
 
-            &.info{
+            &.info {
               background: #3d5df1;
             }
           }
@@ -209,7 +206,16 @@
         }
       }
     }
-
+    @media screen and (max-width: 320px) {
+      .body {
+        font-size: 13px;
+        .list-item {
+          .title {
+            width: 60px;
+          }
+        }
+      }
+    }
     .footer {
       height: 50px;
       line-height: 50px;

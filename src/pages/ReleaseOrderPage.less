@@ -19,7 +19,7 @@
 
       .concat-people-list {
         li {
-          padding: 0 30px;
+          padding: 0 15px;
           height: 35px;
           line-height: 35px;
           display: flex;
@@ -61,7 +61,16 @@
             display: inline-block;
             height: 36px;
             line-height: 36px;
-            width: 60%;
+            width: 70%;
+          }
+
+          @media screen and (max-width: 320px) {
+            button {
+              .iconfont {
+                font-size: 14px;
+              }
+              font-size: 14px;
+            }
           }
         }
 
@@ -169,8 +178,15 @@
           .weui-btn_primary {
             margin-top: 0;
             margin-right: 20px;
-            height: 40px;
-            line-height: 40px;
+            height: 35px;
+            line-height: 35px;
+          }
+
+          @media screen and (max-width: 320px) {
+            .weui-btn_primary {
+              padding: 0;
+              margin-right: 10px;
+            }
           }
         }
       }

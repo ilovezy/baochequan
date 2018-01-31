@@ -4,6 +4,13 @@
   .wallet-panel {
     background: @theme-color;
     color: #fff;
+
+    .icon-back {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #fff;
+    }
     .panel-top {
       display: flex;
       padding: 45px;
@@ -54,6 +61,17 @@
       }
     }
 
+    @media screen and (max-width: 320px) {
+      .panel-top {
+        padding: 30px 25px 5px;
+        .panel-top-left {
+          .number {
+            font-size: 30px;
+          }
+        }
+
+      }
+    }
     .panel-bottom {
       padding: 10px 25px;
       display: flex;

@@ -98,7 +98,7 @@
            v-for="(item, index) in travalList"
            :key="index">
         <div class="header">
-          <span class="icon iconfont">&#xe64b;</span>第一天行车路线：上海市-淮南市
+          <span class="icon iconfont">&#xe64b;</span>第{{index+1}}天行车路线：上海市-淮南市
         </div>
 
         <div class="body">
