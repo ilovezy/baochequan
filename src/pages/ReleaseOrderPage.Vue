@@ -82,9 +82,11 @@
             <li class="people-item"
                 v-for="(item, index) in contactPeopleList"
                 :key="index">
-              <span class="name">姓名：{{item.name}}</span>
-              <span class="phone">手机号：{{item.phone}}</span>
-              <span class="iconfont" @click="removeContactPeopleItem(index)">&#xe62a;</span>
+              <span class="left">姓名：{{item.name}}</span>
+              <span class="right">
+                手机号：{{item.phone}}
+                <span class="iconfont" @click="removeContactPeopleItem(index)">&#xe62a;</span>
+              </span>
             </li>
           </ul>
         </div>
@@ -252,8 +254,8 @@
             <span class="icon iconfont">&#xe600;</span><input type="number" v-model="contactPeoplePhone">
           </div>
 
-          <div class="btn">
-            <span class="icon iconfont text-danger" @click="addContactPeople">&#xe610;</span>添加更多联系人
+          <div class="btn" @click="addContactPeople">
+            <span class="icon iconfont text-danger">&#xe610;</span>添加更多联系人
           </div>
         </div>
       </popup>
