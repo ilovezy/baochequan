@@ -57,13 +57,32 @@
         <div class="body">
           <flexbox :gutter="15">
             <flexbox-item>
-              <span class="name">王师傅</span>
-              <span class="price">竞价单</span>
-              <span class="icon icon-lead">
+              <div class="price-item">
+                <div class="name">王师傅</div>
+                <div class="price">{{1000}}元</div>
+                <span class="icon icon-lead">
                 <img src="../assets/icon-lead.png" alt="">
               </span>
+              </div>
             </flexbox-item>
-
+            <flexbox-item>
+              <div class="price-item">
+                <div class="name">王师傅</div>
+                <div class="price">{{1000}}元</div>
+                <span class="icon icon-lead">
+                <img src="../assets/icon-lead.png" alt="">
+              </span>
+              </div>
+            </flexbox-item>
+            <flexbox-item>
+              <div class="price-item">
+                <div class="name">王师傅</div>
+                <div class="price">{{1000}}元</div>
+                <span class="icon icon-lead">
+                <img src="../assets/icon-lead.png" alt="">
+              </span>
+              </div>
+            </flexbox-item>
           </flexbox>
         </div>
       </div>
@@ -107,6 +126,60 @@
             <flexbox-item>
               <span class="label">其他备注</span>
               <span class="content">随便写点</span>
+            </flexbox-item>
+          </flexbox>
+        </div>
+      </div>
+
+      <div class="card card-plan">
+        <div class="header">
+          <span class="icon iconfont">&#xe91b;</span>价格信息
+        </div>
+        <div class="body">
+          <flexbox :gutter="15" class="plan-item">
+            <flexbox-item>
+              <span class="label">订单总价</span>
+              <span class="content text-danger">191.00元</span>
+            </flexbox-item>
+            <flexbox-item>
+              <span class="label">司机餐补</span>
+              <span class="content">12.00元/餐</span>
+            </flexbox-item>
+          </flexbox>
+          <flexbox :gutter="15" class="plan-item">
+            <flexbox-item>
+              <span class="label">超公里价</span>
+              <span class="content">{{5}}元/公里</span>
+            </flexbox-item>
+            <flexbox-item>
+              <span class="label">住宿费用</span>
+              <span class="content">{{1}}元</span>
+            </flexbox-item>
+          </flexbox>
+          <flexbox :gutter="15" class="plan-item">
+            <flexbox-item>
+              <span class="label">超时费用</span>
+              <span class="content">12元/小时</span>
+            </flexbox-item>
+            <flexbox-item>
+              <span class="label">其他备注</span>
+              <span class="content">不需要发票</span>
+            </flexbox-item>
+          </flexbox>
+        </div>
+      </div>
+
+      <div class="card card-car">
+        <div class="header">
+          <span class="icon iconfont">&#xe825;</span>车辆照片
+        </div>
+        <div class="body">
+          <flexbox :gutter="15" class="img-wrap">
+            <flexbox-item>
+              <img src="../assets/car.jpg" alt="">
+            </flexbox-item>
+            <flexbox-item>
+              <img src="../assets/car.jpg" alt="">
             </flexbox-item>
           </flexbox>
         </div>
