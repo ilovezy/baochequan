@@ -50,6 +50,24 @@
         </div>
       </div>
 
+      <div class="card card-price-record">
+        <div class="header">
+          <span class="icon iconfont">&#xe91b;</span>竞价记录
+        </div>
+        <div class="body">
+          <flexbox :gutter="15">
+            <flexbox-item>
+              <span class="name">王师傅</span>
+              <span class="price">竞价单</span>
+              <span class="icon icon-lead">
+                <img src="../assets/icon-lead.png" alt="">
+              </span>
+            </flexbox-item>
+
+          </flexbox>
+        </div>
+      </div>
+
       <div class="card card-plan">
         <div class="header">
           <span class="icon iconfont">&#xe91b;</span>订单信息
