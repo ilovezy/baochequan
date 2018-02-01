@@ -6,6 +6,7 @@ import WalletPage from '@/pages/WalletPage' // 我的钱包
 import MyCarsPage from '@/pages/UserCenter/MyCarsPage' // 我的车辆
 import WithdrawPage from '@/pages/WithdrawPage' // 提现
 import BidRecordPage from '@/pages/BidRecordPage' // 竞价记录
+import BidRecordMorePage from '@/pages/BidRecordMorePage' // 竞价记录(详细)
 import ReleaseOrderPage from '@/pages/ReleaseOrderPage' // 发布订单
 import CarRegisterPage from '@/pages/CarRegisterPage' // 发布订单
 import DriverDetailPage from '@/pages/DriverDetailPage' // 司机详情
@@ -30,6 +31,9 @@ export default new Router({
   }, {
     path: '/slide/bidRecordPage',
     component: BidRecordPage
+  }, {
+    path: '/slide/bidRecordMorePage',
+    component: BidRecordMorePage
   }, {
     path: '/slide/releaseOrderPage',
     component: ReleaseOrderPage

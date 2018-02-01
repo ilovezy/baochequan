@@ -9,14 +9,12 @@
 
       <!-- drawer content -->
       <div slot="drawer" class="drawer-container">
-        <!--<group title="Drawer demo(beta)" style="margin-top:20px;">-->
-        <!--<cell title="我的钱包" link="/walletPage" value="我的钱包" @click.native="drawerVisibility = false"></cell>-->
-        <!--<cell title="我的车辆" link="/myCarsPage" value="我的车辆" @click.native="drawerVisibility = false"></cell>-->
-        <!--<cell title="竞价记录" link="/bidRecordPage" value="竞价记录" @click.native="drawerVisibility = false"></cell>-->
-        <!--<cell title="我要发单" link="/releaseOrderPage" value="我要发单" @click.native="drawerVisibility = false"></cell>-->
-        <!--<cell title="车辆注册" link="/carRegisterPage" value="车辆注册" @click.native="drawerVisibility = false"></cell>-->
-        <!--<cell title="司机详情" link="/driverDetailPage" value="司机详情" @click.native="drawerVisibility = false"></cell>-->
-        <!--</group>-->
+        <group >
+        <cell title="竞价记录" link="/slide/bidRecordPage" value="竞价记录" @click.native="drawerVisibility = false"></cell>
+        <cell title="竞价记录(详细)" link="/slide/bidRecordMorePage" value="竞价记录(详细)" @click.native="drawerVisibility = false"></cell>
+        <cell title="车辆注册" link="/slide/carRegisterPage" value="车辆注册" @click.native="drawerVisibility = false"></cell>
+        <cell title="司机详情" link="/slide/driverDetailPage" value="司机详情" @click.native="drawerVisibility = false"></cell>
+        </group>
         <div class="top">
           <span class="avatar">
             <img src="../assets/avatar.png" alt="">

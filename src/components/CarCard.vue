@@ -96,8 +96,10 @@
       }
     }
     .right {
+      flex: 1;
       .list-container {
         .list-item {
+          margin-bottom: 4px;
           .label {
             color: @text-color3;
           }
