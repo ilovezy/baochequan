@@ -133,7 +133,7 @@
 
       <div class="card card-plan">
         <div class="header">
-          <span class="icon iconfont">&#xe91b;</span>价格信息
+          <span class="icon iconfont">&#xe672;</span>价格信息
         </div>
         <div class="body">
           <flexbox :gutter="15" class="plan-item">
