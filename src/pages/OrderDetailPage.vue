@@ -186,7 +186,7 @@
             <div class="right">
               <span class="phone">手机号码 {{people.phone}}</span>
               <span class="icon iconfont"
-                    @click="removeContactPeopleItem(index)">&#xe62a;</span>
+                    @click="openConfirmModal(index)">&#xe62a;</span>
             </div>
           </div>
         </div>
@@ -265,19 +265,27 @@
         </div>
       </popup>
     </div>
+
+    <div v-transfer-dom>
+      <confirm v-model="showConfirmModal"
+               title="提示"
+               @on-confirm="removeContactPeopleItem">
+        <p style="text-align:center;">确定删除该联系人吗？</p>
+      </confirm>
+    </div>
   </div>
 </template>
 
 <script>
 
-  import {XHeader, Box, TransferDom, XButton, Group, Cell, Flexbox, FlexboxItem, Rater, Popup} from 'vux'
+  import {XHeader, Box, TransferDom, XButton, Group, Cell, Flexbox, FlexboxItem, Rater, Popup, Confirm} from 'vux'
 
   export default {
     directives: {
       TransferDom
     },
     components: {
-      XHeader, XButton, Box, Group, Cell, Flexbox, FlexboxItem, Rater, Popup
+      XHeader, XButton, Box, Group, Cell, Flexbox, FlexboxItem, Rater, Popup, Confirm
     },
 
     computed: {},
@@ -288,7 +296,8 @@
 
     data() {
       return {
-
+        showConfirmModal: false,
+        selectedIndex: '',
         showPopUp: false,
         contactPeopleName: '',
         contactPeoplePhone: '',
@@ -350,8 +359,14 @@
         this.contactPeoplePhone = ''
       },
 
-      removeContactPeopleItem(index) {
-        this.contactPeopleList.splice(index, 1)
+      openConfirmModal(index) {
+        this.selectedIndex = index
+        this.showConfirmModal = true
+      },
+
+      removeContactPeopleItem() {
+        this.contactPeopleList.splice(this.selectedIndex, 1)
+        this.selectedIndex = ''
       },
     }
   }
