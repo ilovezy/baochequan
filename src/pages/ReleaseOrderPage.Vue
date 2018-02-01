@@ -92,12 +92,16 @@
         <div class="form-panel"
              v-for="(item, index) in useCarList"
              :key="index">
-          <div class="form-item">
-            <div class="label">用车时间</div>
-            <div class="content">
-              <input type="text" class="form-control">
-            </div>
-          </div>
+          <!--<div class="form-item">-->
+            <!--<div class="label">用车时间</div>-->
+            <!--<div class="content">-->
+              <!--<input type="text" class="form-control">-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <group class="group-form-item no-border">
+            <datetime v-model="userCarTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']" @on-change="changeUseCarTime" title="用车时间"></datetime>
+          </group>
 
           <div class="form-item">
             <div class="label">第{{index+1}}天<br>出发地</div>
@@ -202,12 +206,20 @@
         </div>
 
         <div class="form-panel">
-          <div class="form-item">
-            <div class="label">用车时间</div>
-            <div class="content">
-              <input type="text" class="form-control">
-            </div>
-          </div>
+          <!--<div class="form-item">-->
+            <!--<div class="label">用车时间</div>-->
+            <!--<div class="content">-->
+              <!--<input type="text" class="form-control">-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <group class="group-form-item no-border">
+            <datetime v-model="userCarTime"
+                      format="YYYY-MM-DD HH:mm"
+                      :minute-list="['00', '15', '30', '45']"
+                      @on-change="changeUseCarTime"
+                      title="用车时间"></datetime>
+          </group>
 
           <div class="form-item form-textarea">
             <textarea class="form-control" placeholder="请输入行程，时间，人数等关键信息"></textarea>
@@ -263,7 +275,6 @@
 
 <script>
   import {TransferDom, XHeader, XButton, Tab, TabItem, Sticky, Flexbox, FlexboxItem, Datetime, Group, Popup} from 'vux'
-  import index from "../router";
 
   export default {
     directives: {
@@ -286,6 +297,9 @@
           name: 'jack',
           phone: '18768143322'
         }],
+
+        userCarTime: '2017-06-12 09:00',
+
         useCarList: [{
           passPointList: []
         }],
@@ -321,6 +335,10 @@
 
       openBottomBar() {
         this.showPopUp = true
+      },
+
+      changeUseCarTime(value){
+        console.log('change', value, new Date(value))
       },
 
       addContactPeople() {
@@ -361,6 +379,6 @@
   }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
   @import './ReleaseOrderPage.less';
 </style>
