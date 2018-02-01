@@ -1,11 +1,16 @@
 <template>
 
   <section class="card order-card">
-    <span class="ribbon">
-      <span class="text">未完成</span>
-    </span>
+    <span class="top-card-icon primary"
+          v-if="cardInfo.type">常规包车</span>
+    <span class="top-card-icon warning"
+          v-else>顺风套单</span>
 
     <div class="header">
+      <span class="ribbon">
+        <span class="text">未完成</span>
+      </span>
+
       <span class="avatar">
         <img :src="cardInfo.avatar" alt="">
       </span>
@@ -94,28 +99,50 @@
   .order-card {
     margin: @basic-margin;
     position: relative;
-
-    .ribbon {
-      position: absolute;
-      top: 6px;
-      right: -26px;
-      background: #ff272f;
-      color: #fff;
-      width: 100px;
-      height: 20px;
+    margin-top: 35px;
+    overflow: visible;
+    .top-card-icon {
       font-size: 12px;
+      color: #fff;
+      height: 20px;
       line-height: 20px;
-      transform: rotate(30deg);
       text-align: center;
-
+      position: absolute;
+      top: -20px;
+      padding: 0 8px;
+      &.primary {
+        background: @theme-color-error;
+      }
       &.warning {
-        background: #e28521;
+        background: @theme-color-primary;
       }
     }
+
 
     .header {
       border-bottom: none;
       padding-right: 0;
+      overflow: hidden;
+      position: relative;
+
+      .ribbon {
+        position: absolute;
+        top: 6px;
+        right: -26px;
+        background: #ff272f;
+        color: #fff;
+        width: 100px;
+        height: 20px;
+        font-size: 12px;
+        line-height: 20px;
+        transform: rotate(30deg);
+        text-align: center;
+
+        &.warning {
+          background: #e28521;
+        }
+      }
+
       .avatar {
         display: inline-block;
         width: 60px;

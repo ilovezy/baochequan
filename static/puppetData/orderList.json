@@ -15,6 +15,7 @@
   "price": 0,
   "peopleCount": 33
 },{
+  "type": 1,
   "name": "jack",
   "avatar": "http://res.xiaomaiketang.com/xiaomai/kiteFlying_201703017.png",
   "tag": "旅行社",
