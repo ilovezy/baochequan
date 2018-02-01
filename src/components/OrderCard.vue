@@ -92,7 +92,7 @@
   @basic-shadow-color: #aaa;
 
   .order-card {
-    margin: 15px;
+    margin: @basic-margin;
     position: relative;
 
     .ribbon {
@@ -115,6 +115,7 @@
 
     .header {
       border-bottom: none;
+      padding-right: 0;
       .avatar {
         display: inline-block;
         width: 60px;
@@ -131,10 +132,10 @@
         margin-left: 15px;
         border-bottom: 1px solid @basic-border-color;
         height: 60px;
+        padding-right: 10px;
 
         .top {
           margin-top: 3px;
-          margin-bottom: 5px;
           display: flex;
           align-items: center;
           .name {
@@ -180,7 +181,7 @@
       }
 
       .list-item {
-        margin-bottom: 10px;
+        margin-bottom: 5px;
         .icon {
 
         }

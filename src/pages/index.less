@@ -98,12 +98,12 @@
   //侧边栏
   .vux-drawer {
     .vux-drawer-content {
-      background: #2D2F2E;
+      background-color: #2D2F2E!important;
     }
     .drawer-container {
       color: #fff;
       .top {
-        margin: 35px 0;
+        margin: 70px 0;
         text-align: center;
         .avatar {
           display: inline-block;
@@ -114,6 +114,12 @@
           img {
             width: 100%;
           }
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        .top {
+          margin: 40px 0;
         }
       }
 

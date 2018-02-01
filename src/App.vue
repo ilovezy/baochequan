@@ -30,7 +30,7 @@ export default {
 @import './style/basic';
 
 body {
-  background-color: #fbf9fe;
+  background-color: #f5f5f5;
 }
 
 // router 动画效果

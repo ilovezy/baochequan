@@ -172,7 +172,7 @@
       <div class="card card-contact">
         <div class="header">
           <div class="left">
-            <span class="icon iconfont">&#xe672;</span>现场联系人
+            <span class="icon iconfont">&#xe613;</span>现场联系人
           </div>
           <div class="right" @click="openBottomBar">
             添加 <span class="icon iconfont">&#xe78b;</span>
@@ -205,6 +205,15 @@
               <img src="../assets/car.jpg" alt="">
             </flexbox-item>
           </flexbox>
+        </div>
+      </div>
+
+      <div class="card card-usercar-info">
+        <div class="header">
+          <span class="icon iconfont">&#xe612;</span>用车信息
+        </div>
+        <div class="body">
+          11月20号上午十点，到下午天行车路线：上海市-淮南市
         </div>
       </div>
 

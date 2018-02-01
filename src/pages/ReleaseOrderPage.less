@@ -46,7 +46,7 @@
       .form-item {
         display: flex;
         justify-content: space-between;
-        padding: 5px 15px;
+        padding: 5px @basic-padding;
         padding-right: 30px;
         margin-bottom: 10px;
         .label {
@@ -113,6 +113,16 @@
             padding: 0;
             margin-right: 15px;
             margin-top: 0;
+            border: 1px solid #cacaca;
+            background: #fff;
+            box-sizing: border-box;
+            color: #aaa;
+
+            &.weui-btn_primary {
+              background: @theme-color;
+              color: #fff;
+              border: none;
+            }
           }
 
           .text-wrap {
@@ -122,6 +132,21 @@
             width: 94%;
             margin-top: 15px;
             color: @theme-color-danger;
+          }
+        }
+      }
+
+      .from-item-notice {
+        .content {
+          display: flex;
+          align-items: center;
+          .text-danger{
+            margin-left: 5px;
+          }
+          .notice {
+            font-size: 12px;
+            margin-left: 5px;
+            color: #999;
           }
         }
       }
@@ -139,6 +164,8 @@
       .form-item-spe {
         margin-bottom: 0;
         padding-right: 15px;
+        display: flex;
+        align-items: center;
 
         .label {
           width: 100px;
@@ -195,11 +222,11 @@
             height: 35px;
             line-height: 35px;
             font-size: 14px;
+            padding: 0;
           }
 
           @media screen and (max-width: 320px) {
             .weui-btn_primary {
-              padding: 0;
               margin-right: 10px;
             }
           }

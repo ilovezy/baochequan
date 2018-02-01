@@ -43,6 +43,13 @@
             </div>
           </div>
 
+          <div class="form-item from-item-notice">
+            <div class="label"></div>
+            <div class="content">
+              <input type="checkbox"> <span class="text-danger">顺风套单</span> <span class="notice">注：如果希望是顺风套单来接请勾选</span>
+            </div>
+          </div>
+
           <div class="form-item form-item-double">
             <flexbox>
               <flexbox-item>
@@ -60,7 +67,9 @@
                 <div class="label">车辆数</div>
                 <div class="content">
                   <select class="form-control">
-                    <option value="1" v-for="(item, index) in carNumList">{{item}}辆</option>
+                    <option value="item"
+                            v-for="(item, index) in carNumList"
+                            :key="index">{{item}}辆</option>
                   </select>
                 </div>
               </flexbox-item>
@@ -92,15 +101,12 @@
         <div class="form-panel"
              v-for="(item, index) in useCarList"
              :key="index">
-          <!--<div class="form-item">-->
-            <!--<div class="label">用车时间</div>-->
-            <!--<div class="content">-->
-              <!--<input type="text" class="form-control">-->
-            <!--</div>-->
-          <!--</div>-->
-
           <group class="group-form-item no-border">
-            <datetime v-model="userCarTime" format="YYYY-MM-DD HH:mm" :minute-list="['00', '15', '30', '45']" @on-change="changeUseCarTime" title="用车时间"></datetime>
+            <datetime v-model="userCarTime"
+                      format="YYYY-MM-DD HH:mm"
+                      :minute-list="['00', '15', '30', '45']"
+                      @on-change="changeUseCarTime"
+                      title="用车时间"></datetime>
           </group>
 
           <div class="form-item">
@@ -194,6 +200,14 @@
               <input type="number" class="form-control" placeholder="单位元">
             </div>
           </div>
+
+          <div class="form-item from-item-notice">
+            <div class="label"></div>
+            <div class="content">
+              <input type="checkbox"> <span class="text-danger">顺风套单</span> <span class="notice">注：如果希望是顺风套单来接请勾选</span>
+            </div>
+          </div>
+
         </div>
 
         <div class="form-panel">
@@ -206,13 +220,6 @@
         </div>
 
         <div class="form-panel">
-          <!--<div class="form-item">-->
-            <!--<div class="label">用车时间</div>-->
-            <!--<div class="content">-->
-              <!--<input type="text" class="form-control">-->
-            <!--</div>-->
-          <!--</div>-->
-
           <group class="group-form-item no-border">
             <datetime v-model="userCarTime"
                       format="YYYY-MM-DD HH:mm"
