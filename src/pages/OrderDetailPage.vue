@@ -169,6 +169,29 @@
         </div>
       </div>
 
+      <div class="card card-contact">
+        <div class="header">
+          <div class="left">
+            <span class="icon iconfont">&#xe672;</span>现场联系人
+          </div>
+          <div class="right" @click="openBottomBar">
+            添加 <span class="icon iconfont">&#xe78b;</span>
+          </div>
+        </div>
+        <div class="body">
+          <div class="contact-people-item"
+               v-for="(people, index) in contactPeopleList"
+               :key="index">
+            <div class="left">姓名 {{people.name}}</div>
+            <div class="right">
+              <span class="phone">手机号码 {{people.phone}}</span>
+              <span class="icon iconfont"
+                    @click="removeContactPeopleItem(index)">&#xe62a;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="card card-car">
         <div class="header">
           <span class="icon iconfont">&#xe825;</span>车辆照片
@@ -220,19 +243,41 @@
         </flexbox-item>
       </flexbox>
     </div>
+
+    <div v-transfer-dom>
+      <popup v-model="showPopUp" class="pop-up" position="bottom" max-height="50%">
+        <div class="top">
+          <div class="left" @click="showPopUp = false">取消</div>
+          <div class="right text-danger" @click="addContactPeople">确定</div>
+        </div>
+
+        <div class="popup-form">
+          <div class="form-item">
+            <span class="icon iconfont">&#xe63e;</span><input type="text" v-model="contactPeopleName">
+          </div>
+          <div class="form-item">
+            <span class="icon iconfont">&#xe600;</span><input type="number" v-model="contactPeoplePhone">
+          </div>
+
+          <div class="btn" @click="addContactPeople">
+            <span class="icon iconfont text-danger">&#xe610;</span>添加更多联系人
+          </div>
+        </div>
+      </popup>
+    </div>
   </div>
 </template>
 
 <script>
 
-  import {XHeader, Box, TransferDom, XButton, Group, Cell, Flexbox, FlexboxItem, Rater} from 'vux'
+  import {XHeader, Box, TransferDom, XButton, Group, Cell, Flexbox, FlexboxItem, Rater, Popup} from 'vux'
 
   export default {
     directives: {
       TransferDom
     },
     components: {
-      XHeader, XButton, Box, Group, Cell, Flexbox, FlexboxItem, Rater
+      XHeader, XButton, Box, Group, Cell, Flexbox, FlexboxItem, Rater, Popup
     },
 
     computed: {},
@@ -243,6 +288,15 @@
 
     data() {
       return {
+
+        showPopUp: false,
+        contactPeopleName: '',
+        contactPeoplePhone: '',
+        contactPeopleList: [{
+          name: 'jack',
+          phone: '18768143322'
+        }],
+
         travalList: [{
           pointList: [{
             pointText: '上海市浦东新区到2号机场上海市浦东新区到2号机场上海市浦东新区到2号机场上海市浦东新区到2号机场',
@@ -279,7 +333,26 @@
     methods: {
       getData() {
 
-      }
+      },
+
+      openBottomBar() {
+        this.showPopUp = true
+      },
+
+      addContactPeople() {
+        // TODO valid form
+        this.contactPeopleList.push({
+          name: this.contactPeopleName,
+          phone: this.contactPeoplePhone
+        })
+
+        this.contactPeopleName = ''
+        this.contactPeoplePhone = ''
+      },
+
+      removeContactPeopleItem(index) {
+        this.contactPeopleList.splice(index, 1)
+      },
     }
   }
 </script>

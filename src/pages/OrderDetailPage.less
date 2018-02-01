@@ -137,6 +137,30 @@
 
       }
 
+      &.card-contact {
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .right {
+            color: #999;
+          }
+        }
+
+        .body {
+          .contact-people-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px solid @basic-border-color;
+            .iconfont {
+              color: #999;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
       &.card-price-record {
         .body {
           .price-item {
@@ -209,7 +233,7 @@
               color: #999;
               text-align: center;
               position: relative;
-              top:30px;
+              top: 30px;
               line-height: 14px;
             }
 
@@ -267,11 +291,11 @@
 
             .content {
               flex: 1;
-              word-break:break-all;
-              display:-webkit-box;
-              -webkit-line-clamp:2;
-              -webkit-box-orient:vertical;
-              overflow:hidden;
+              word-break: break-all;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
             }
           }
         }
