@@ -76,6 +76,30 @@
     box-shadow: 0 0 4px @basic-shadow-color;
     padding: 0 15px;
     align-items: center;
+
+    .btns-wrap {
+      .btn-mini {
+        padding: 6px 8px;
+        font-size: 12px;
+        color: #999;
+        border: 1px solid @basic-border-color;
+        margin-right: 5px;
+        border-radius: 4px;
+
+        &.active {
+         border-color: @theme-color;
+         color: @theme-color;
+        }
+      }
+
+      @media screen and (max-width: 320px) {
+        .btn-mini {
+          padding: 3px;
+          margin-right: 0;
+        }
+      }
+    }
+
     .number {
       color: @sub-text-color;
     }
@@ -98,7 +122,7 @@
   //侧边栏
   .vux-drawer {
     .vux-drawer-content {
-      background-color: #2D2F2E!important;
+      background-color: #2D2F2E !important;
     }
     .drawer-container {
       color: #fff;
@@ -134,11 +158,19 @@
             height: 100%;
             padding: 10px;
             padding-left: 40px;
-            color: #fff!important;
-            &:link {color: #fff}
-            &:visited {color: #fff}
-            &:hover {color: #fff}
-            &:active {background: DARKEN(#2D2F2E, 3%)}
+            color: #fff !important;
+            &:link {
+              color: #fff
+            }
+            &:visited {
+              color: #fff
+            }
+            &:hover {
+              color: #fff
+            }
+            &:active {
+              background: DARKEN(#2D2F2E, 3%)
+            }
           }
           .iconfont {
             font-size: 22px;

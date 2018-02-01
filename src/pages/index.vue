@@ -95,7 +95,23 @@
 
         <div class="content-container">
           <div class="control-bar">
-            <div class="number">{{orderNum}}个订单</div>
+            <div class="btns-wrap">
+              <span class="btn-mini"
+                      :class="controlType==1 ? 'active': ''"
+                      @click="changeControlType(1)"
+              >全部订单</span>
+              <span class="btn-mini"
+                      :class="controlType==2 ? 'active': ''"
+                      @click="changeControlType(2)"
+              >顺风套单</span>
+              <span class="btn-mini"
+                      :class="controlType==3 ? 'active': ''"
+                      @click="changeControlType(3)"
+              >常规包车</span>
+            </div>
+
+            <!--<div class="number">{{orderNum}}个订单</div>-->
+
             <select class="form-control" v-model="filter" @change="filterChange">
               <option value="1">智能排序</option>
               <option value="2">2</option>
@@ -104,21 +120,6 @@
             </select>
           </div>
           <div class="card-list-container">
-            <order-card v-for="(item, index) in orderList"
-                        <!--v-if="orderList.length > 0"-->
-                        <!--:card-info="item"-->
-                        <!--:key="index"/>-->
-            <!--<div class="no-data" v-else>-->
-              <!--<div class="notice">-->
-                <!--暂无订单数据-->
-              <!--</div>-->
-              <!--<x-button type="primary">去发单</x-button>-->
-            <!--</div>-->
-              <p v-for="item in list">
-                Line:
-                <span v-text="item"></span>
-              </p>
-
             <order-card v-for="(item, index) in orderList"
                         v-if="orderList.length > 0"
                         :card-info="item"
@@ -162,12 +163,11 @@
         orderList: [],
 
         currentPanel: 'orderSea',
+        controlType: 1,
 
         drawerVisibility: false,
         showModeValue: 'overlay', //  'overlay' or 'push'
         showPlacementValue: 'left', // 'left' or 'right'
-
-        list: [],
       }
     },
 
@@ -178,6 +178,9 @@
     },
 
     methods: {
+      changeControlType(type){
+        this.controlType = type
+      },
       getData() {
         // 这里的6种情况其实都只需要根据状态来判断即可，
         const self = this
