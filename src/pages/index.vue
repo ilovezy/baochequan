@@ -26,33 +26,33 @@
 
         <ul class="nav-list">
           <li class="nav-list-item">
-            <router-link :to="{ path: '/walletPage'}">
+            <router-link :to="{ path: '/slide/walletPage'}">
               <span class="iconfont">&#xe60b;</span>钱包
             </router-link>
           </li>
           <li class="nav-list-item">
-            <router-link :to="{ path: '/walletPage'}">
+            <router-link :to="{ path: '/slide/walletPage'}">
               <span class="iconfont">&#xe61f;</span>客服
             </router-link>
           </li>
           <li class="nav-list-item">
-            <router-link :to="{ path: '/walletPage'}">
+            <router-link :to="{ path: '/slide/walletPage'}">
               <span class="iconfont">&#xe65b;</span>设置
             </router-link>
           </li>
           <li class="nav-list-item">
-            <router-link :to="{ path: '/myCarsPage'}">
+            <router-link :to="{ path: '/slide/myCarsPage'}">
               <span class="iconfont">&#xe68a;</span>车辆列表
             </router-link>
           </li>
           <li class="nav-list-item">
-            <router-link :to="{ path: '/walletPage'}">
+            <router-link :to="{ path: '/slide/walletPage'}">
               <span class="iconfont">&#xe62b;</span>推荐车主
             </router-link>
           </li>
 
           <li class="nav-list-item">
-            <router-link :to="{ path: '/orderDetailPage'}">
+            <router-link :to="{ path: '/slide/orderDetailPage'}">
               <span class="iconfont">&#xe62b;</span>订单详情
             </router-link>
           </li>
@@ -163,7 +163,7 @@
 
         currentPanel: 'orderSea',
 
-        drawerVisibility: true,
+        drawerVisibility: false,
         showModeValue: 'overlay', //  'overlay' or 'push'
         showPlacementValue: 'left', // 'left' or 'right'
 
@@ -207,7 +207,7 @@
       },
 
       goReleaseOrderPages() {
-        this.$router.push('/releaseOrderPage')
+        this.$router.push('/slide/releaseOrderPage')
       },
 
       infiniteHandler($state) {

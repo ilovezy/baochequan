@@ -13,34 +13,34 @@ import OrderDetailPage from '@/pages/OrderDetailPage' // 订单详情
 
 export default new Router({
   routes: [{
-    path: '/',
-    component: LoginPage
-  },{
-    path: "/index",
+    path: "/",
     component: index
   }, {
-    path: '/walletPage',
+    path: '/slide/login',
+    component: LoginPage
+  }, {
+    path: '/slide/walletPage',
     component: WalletPage
   }, {
-    path: '/withdrawPage',
+    path: '/slide/walletPage/withdrawPage',
     component: WithdrawPage
   }, {
-    path: '/myCarsPage',
+    path: '/slide/myCarsPage',
     component: MyCarsPage
   }, {
-    path: '/bidRecordPage',
+    path: '/slide/bidRecordPage',
     component: BidRecordPage
   }, {
-    path: '/releaseOrderPage',
+    path: '/slide/releaseOrderPage',
     component: ReleaseOrderPage
   }, {
-    path: '/carRegisterPage',
+    path: '/slide/carRegisterPage',
     component: CarRegisterPage
   }, {
-    path: '/driverDetailPage',
+    path: '/slide/driverDetailPage',
     component: DriverDetailPage
   }, {
-    path: '/orderDetailPage',
+    path: '/slide/orderDetailPage',
     component: OrderDetailPage
   }]
 })

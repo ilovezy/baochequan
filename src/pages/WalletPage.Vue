@@ -99,7 +99,7 @@
       },
 
       goWithdrawPage(){
-        this.$router.push('/withdrawPage')
+        this.$router.push('/slide/walletPage/withdrawPage')
       },
       back(){
         this.$router ? this.$router.back() : window.history.back()
