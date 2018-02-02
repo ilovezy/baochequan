@@ -192,7 +192,7 @@
         </div>
       </div>
 
-      <div class="card card-car">
+      <div class="card card-car-item">
         <div class="header">
           <span class="icon iconfont">&#xe825;</span>车辆照片
         </div>

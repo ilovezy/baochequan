@@ -9,12 +9,6 @@
 
       <!-- drawer content -->
       <div slot="drawer" class="drawer-container">
-        <group >
-        <cell title="竞价记录" link="/slide/bidRecordPage" value="竞价记录" @click.native="drawerVisibility = false"></cell>
-        <cell title="竞价记录(详细)" link="/slide/bidRecordMorePage" value="竞价记录(详细)" @click.native="drawerVisibility = false"></cell>
-        <cell title="车辆注册" link="/slide/carRegisterPage" value="车辆注册" @click.native="drawerVisibility = false"></cell>
-        <cell title="司机详情" link="/slide/driverDetailPage" value="司机详情" @click.native="drawerVisibility = false"></cell>
-        </group>
         <div class="top">
           <span class="avatar">
             <img src="../assets/avatar.png" alt="">
@@ -52,6 +46,26 @@
           <li class="nav-list-item">
             <router-link :to="{ path: '/slide/orderDetailPage'}">
               <span class="iconfont">&#xe62b;</span>订单详情
+            </router-link>
+          </li>
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/slide/bidRecordPage'}">
+              <span class="iconfont">&#xe62b;</span>竞价记录
+            </router-link>
+          </li>
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/slide/bidRecordMorePage'}">
+              <span class="iconfont">&#xe62b;</span>竞价记录(详)
+            </router-link>
+          </li>
+          <li class="nav-list-item">
+          <router-link :to="{ path: '/slide/carRegisterPage'}">
+            <span class="iconfont">&#xe62b;</span>车辆注册
+          </router-link>
+        </li>
+          <li class="nav-list-item">
+            <router-link :to="{ path: '/slide/driverDetailPage'}">
+              <span class="iconfont">&#xe62b;</span>司机详情
             </router-link>
           </li>
         </ul>

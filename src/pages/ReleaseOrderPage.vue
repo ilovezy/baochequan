@@ -1,7 +1,7 @@
 <template>
   <div class="release-order-page">
     <x-header :left-options="{backText: '发布订单'}">
-      <span class="icon iconfont" slot="right">&#xe61a;</span>
+      <span class="icon iconfont" slot="right" @click="backToIndex">&#xe61a;</span>
     </x-header>
 
     <div class="container">
@@ -381,6 +381,10 @@
 
       removePassPoint(item, index) {
         item.passPointList.splice(index, 1)
+      },
+
+      backToIndex(){
+        this.$router.back()
       }
     }
   }
