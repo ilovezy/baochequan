@@ -151,7 +151,9 @@
                         v-if="orderList.length > 0"
                         :card-info="item"
                         :key="index"/>
-            <infinite-loading @infinite="infiniteHandler"></infinite-loading>
+            <infinite-loading spinner="waveDots" @infinite="infiniteHandler">
+              <span slot="no-more">没有更多数据了，亲</span>
+            </infinite-loading>
           </div>
         </div>
 
@@ -241,30 +243,34 @@
       },
 
       infiniteHandler($state) {
-        setTimeout(() => {
-          const temp = [];
-          for (let i = this.orderList.length + 1; i <= this.orderList.length + 3; i++) {
-            temp.push({
-              "name": "Soso",
-              "avatar": "http://res.xiaomaiketang.com/xiaomai/riceDumpling_201703017.png",
-              "tag": "车队",
-              "iconType": 1,
-              "totalOrder": 12,
-              "totalService": 6,
-              "orderId": "20131",
-              "userCarNum": 5,
-              "beginDate": "2018-02-01 15:15",
-              "totalDay": 1,
-              "startPoint": "杭州市",
-              "endPoint": "上海市",
-              "totalLength": 198.00,
-              "price": 0,
-              "peopleCount": 33
-            });
-          }
-          this.orderList = this.orderList.concat(temp);
-          $state.loaded();
-        }, 1000);
+        if (this.orderList.length > 10) { // 你的条件
+          $state.complete();
+        } else {
+          setTimeout(() => {
+            const temp = [];
+            for (let i = this.orderList.length + 1; i <= this.orderList.length + 3; i++) {
+              temp.push({
+                "name": "Soso",
+                "avatar": "http://res.xiaomaiketang.com/xiaomai/riceDumpling_201703017.png",
+                "tag": "车队",
+                "iconType": 1,
+                "totalOrder": 12,
+                "totalService": 6,
+                "orderId": "20131",
+                "userCarNum": 5,
+                "beginDate": "2018-02-01 15:15",
+                "totalDay": 1,
+                "startPoint": "杭州市",
+                "endPoint": "上海市",
+                "totalLength": 198.00,
+                "price": 0,
+                "peopleCount": 33
+              });
+            }
+            this.orderList = this.orderList.concat(temp);
+            $state.loaded();
+          }, 1000);
+        }
       },
     }
   }
