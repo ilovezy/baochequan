@@ -59,10 +59,10 @@
             </router-link>
           </li>
           <li class="nav-list-item">
-          <router-link :to="{ path: '/slide/carRegisterPage'}">
-            <span class="iconfont">&#xe62b;</span>车辆注册
-          </router-link>
-        </li>
+            <router-link :to="{ path: '/slide/carRegisterPage'}">
+              <span class="iconfont">&#xe62b;</span>车辆注册
+            </router-link>
+          </li>
           <li class="nav-list-item">
             <router-link :to="{ path: '/slide/driverDetailPage'}">
               <span class="iconfont">&#xe62b;</span>司机详情
@@ -109,17 +109,32 @@
           <div class="control-bar">
             <div class="btns-wrap">
               <span class="btn-mini"
-                      :class="controlType==1 ? 'active': ''"
-                      @click="changeControlType(1)"
-              >全部订单</span>
+                    :class="controlType==1 ? 'active': ''"
+                    @click="changeControlType(1)"
+              >全部订单
+
+                <span class="icon-selected">
+                  <span class="iconfont">&#xe721;</span>
+                </span>
+              </span>
               <span class="btn-mini"
-                      :class="controlType==2 ? 'active': ''"
-                      @click="changeControlType(2)"
-              >顺风套单</span>
+                    :class="controlType==2 ? 'active': ''"
+                    @click="changeControlType(2)"
+              >顺风套单
+
+                <span class="icon-selected">
+                  <span class="iconfont">&#xe721;</span>
+                </span>
+              </span>
               <span class="btn-mini"
-                      :class="controlType==3 ? 'active': ''"
-                      @click="changeControlType(3)"
-              >常规包车</span>
+                    :class="controlType==3 ? 'active': ''"
+                    @click="changeControlType(3)"
+              >常规包车
+
+                <span class="icon-selected">
+                  <span class="iconfont">&#xe721;</span>
+                </span>
+              </span>
             </div>
 
             <!--<div class="number">{{orderNum}}个订单</div>-->
@@ -190,7 +205,7 @@
     },
 
     methods: {
-      changeControlType(type){
+      changeControlType(type) {
         this.controlType = type
       },
       getData() {
